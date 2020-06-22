@@ -10,23 +10,27 @@ package Conductores;
  * @author josed
  */
 public class Conductor {
-    private String dpi, nombre, appelido, TdeL, Fnac, telefono, direccion;
+    private String dpi, nombre, appelido, TdeL, genero, Fnac, telefono, direccion;
 
-    public Conductor(String dpi, String nombre, String appelido, String TdeL, String Fnac, String telefono, String direccion) {
+    public Conductor(String dpi, String nombre, String appelido, String TdeL, String genero, String Fnac, String telefono, String direccion) {
         this.dpi = dpi;
         this.nombre = nombre;
         this.appelido = appelido;
         this.TdeL = TdeL;
+        this.genero = genero;
         this.Fnac = Fnac;
         this.telefono = telefono;
         this.direccion = direccion;
     }
+
+  
 
     public Conductor() {
         this.dpi = "";
         this.nombre = "";
         this.appelido = "";
         this.TdeL = "";
+        this.genero="";
         this.Fnac = "";
         this.telefono = "";
         this.direccion = "";

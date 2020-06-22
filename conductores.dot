@@ -1,0 +1,16 @@
+digraph G {
+
+node[shape=box]
+
+		//generar lista doble
+
+DD80[label="DPI: 152245165\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD81[label="DPI: 152245565\n Nombre: jose1 david",color="burlywood", shape=box,style=filled];
+DD82[label="DPI: 1522454565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD83[label="DPI: 1522455565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD84[label="DPI: 15224553365\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD85[label="DPI: 15224555565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+{rank=same; DD80->DD81->DD82->DD83->DD84->DD85->DD80;}
+DD85->DD84->DD83->DD82->DD81->DD80->DD85;
+
+}
