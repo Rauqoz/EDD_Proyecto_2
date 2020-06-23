@@ -4,13 +4,31 @@ node[shape=box]
 
 		//generar lista doble
 
-DD80[label="DPI: 152245165\n Nombre: jose david",color="burlywood", shape=box,style=filled];
-DD81[label="DPI: 152245565\n Nombre: jose1 david",color="burlywood", shape=box,style=filled];
-DD82[label="DPI: 1522454565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
-DD83[label="DPI: 1522455565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
-DD84[label="DPI: 15224553365\n Nombre: jose david",color="burlywood", shape=box,style=filled];
-DD85[label="DPI: 15224555565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
-{rank=same; DD80->DD81->DD82->DD83->DD84->DD85->DD80;}
-DD85->DD84->DD83->DD82->DD81->DD80->DD85;
+DD80[label="DPI: 1452245165\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD81[label="DPI: 1522435565\n Nombre: jose1 david",color="burlywood", shape=box,style=filled];
+DD82[label="DPI: 1522445165\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD83[label="DPI: 1522445565\n Nombre: jose1 david",color="burlywood", shape=box,style=filled];
+DD84[label="DPI: 1522451565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD85[label="DPI: 1522455655\n Nombre: jose1 david",color="burlywood", shape=box,style=filled];
+DD86[label="DPI: 1523245165\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD87[label="DPI: 1525245565\n Nombre: jose1 david",color="burlywood", shape=box,style=filled];
+DD88[label="DPI: 15223455565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD89[label="DPI: 15224545465\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD810[label="DPI: 15224554565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD811[label="DPI: 15224555565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD812[label="DPI: 15242455565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD813[label="DPI: 15322454565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD814[label="DPI: 15422455565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD815[label="DPI: 135224555565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD816[label="DPI: 152245353365\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD817[label="DPI: 152245453365\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD818[label="DPI: 152245535565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD819[label="DPI: 152245545565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD820[label="DPI: 152245555565\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD821[label="DPI: 152254553365\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD822[label="DPI: 154224545365\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+DD823[label="DPI: 315224553365\n Nombre: jose david",color="burlywood", shape=box,style=filled];
+{rank=same; DD80->DD81->DD82->DD83->DD84->DD85->DD86->DD87->DD88->DD89->DD810->DD811->DD812->DD813->DD814->DD815->DD816->DD817->DD818->DD819->DD820->DD821->DD822->DD823->DD80;}
+DD823->DD822->DD821->DD820->DD819->DD818->DD817->DD816->DD815->DD814->DD813->DD812->DD811->DD810->DD89->DD88->DD87->DD86->DD85->DD84->DD83->DD82->DD81->DD80->DD823;
 
 }

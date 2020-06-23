@@ -36,6 +36,14 @@ public class Conductor {
         this.direccion = "";
     }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
     public String getDpi() {
         return dpi;
     }

@@ -12,12 +12,22 @@ package Conductores;
 public class MenuC extends javax.swing.JFrame {
  public ListaC lista;
  Cmasiva cmasiva;
+ AgregarC cargac;
+ ModificaionC modi;
+ EliminarC eliminar;
+ MostrarCL mostrar;
+ Estructura graphyz;
     /**
      * Creates new form MenuC
      */
     public MenuC() {
-        lista=new ListaC();
+        lista =new ListaC();
+        modi=new ModificaionC(lista);
         cmasiva=new Cmasiva(lista);
+        cargac =new AgregarC(lista);
+        eliminar=new EliminarC(lista);
+        mostrar=new MostrarCL(lista);
+        graphyz=new Estructura(lista);
         initComponents();
     }
 
@@ -38,7 +48,6 @@ public class MenuC extends javax.swing.JFrame {
         BTNeliminar = new javax.swing.JButton();
         BTNcllave = new javax.swing.JButton();
         BTNestructura = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         Opciones = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,23 +68,41 @@ public class MenuC extends javax.swing.JFrame {
         Btnagregar.setBackground(new java.awt.Color(153, 153, 153));
         Btnagregar.setText("Agregar");
         Btnagregar.setToolTipText("");
+        Btnagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnagregarActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(153, 153, 153));
         jButton4.setText("Modificar ");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         BTNeliminar.setBackground(new java.awt.Color(153, 153, 153));
         BTNeliminar.setText("Eliminar ");
+        BTNeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNeliminarActionPerformed(evt);
+            }
+        });
 
         BTNcllave.setBackground(new java.awt.Color(153, 153, 153));
         BTNcllave.setText("Mostrar Con Llave");
+        BTNcllave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNcllaveActionPerformed(evt);
+            }
+        });
 
         BTNestructura.setBackground(new java.awt.Color(153, 153, 153));
         BTNestructura.setText("Mostra Estructura");
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BTNestructura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BTNestructuraActionPerformed(evt);
             }
         });
 
@@ -90,23 +117,18 @@ public class MenuC extends javax.swing.JFrame {
                         .addComponent(Btnatras, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(botonesLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(botonesLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton1))
-                            .addGroup(botonesLayout.createSequentialGroup()
-                                .addComponent(BTNcarga)
-                                .addGap(35, 35, 35)
-                                .addComponent(Btnagregar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton4)
-                                .addGap(18, 18, 18)
-                                .addComponent(BTNeliminar)
-                                .addGap(18, 18, 18)
-                                .addComponent(BTNcllave)
-                                .addGap(18, 18, 18)
-                                .addComponent(BTNestructura)))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(BTNcarga)
+                        .addGap(35, 35, 35)
+                        .addComponent(Btnagregar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4)
+                        .addGap(18, 18, 18)
+                        .addComponent(BTNeliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BTNcllave)
+                        .addGap(18, 18, 18)
+                        .addComponent(BTNestructura)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         botonesLayout.setVerticalGroup(
             botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,27 +143,26 @@ public class MenuC extends javax.swing.JFrame {
                     .addComponent(BTNeliminar)
                     .addComponent(BTNcllave)
                     .addComponent(BTNestructura))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         Opciones.setBackground(new java.awt.Color(102, 102, 102));
+        Opciones.setAutoscrolls(true);
         Opciones.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(botones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(botones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(botones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -152,16 +173,74 @@ public class MenuC extends javax.swing.JFrame {
         
        Opciones.add(cmasiva);
        cmasiva.setVisible(true);
+       cargac.setVisible(false);
+       modi.setVisible(false);
+       eliminar.setVisible(false);
+       mostrar.setVisible(false);
+       graphyz.setVisible(false);
        Opciones.validate();
       
     }//GEN-LAST:event_BTNcargaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:}
-        lista.ordenarListaMenorM();
-        lista.Imprimir();
-        lista.GenerarGraphyz();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BtnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnagregarActionPerformed
+        // TODO add your handling code here:
+         Opciones.add(cargac);
+       cargac.setVisible(true);
+       cmasiva.setVisible(false);
+       modi.setVisible(false);
+       eliminar.setVisible(false);
+       mostrar.setVisible(false);
+       graphyz.setVisible(false);
+       Opciones.validate();
+    }//GEN-LAST:event_BtnagregarActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+           Opciones.add(modi);
+       cargac.setVisible(false);
+       cmasiva.setVisible(false);
+       modi.setVisible(true);
+       eliminar.setVisible(false);
+       mostrar.setVisible(false);
+       graphyz.setVisible(false);
+       Opciones.validate();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void BTNeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNeliminarActionPerformed
+        // TODO add your handling code here:
+        Opciones.add(eliminar);
+       cargac.setVisible(false);
+       cmasiva.setVisible(false);
+       modi.setVisible(false);
+       eliminar.setVisible(true);
+       mostrar.setVisible(false);
+       graphyz.setVisible(false);
+       Opciones.validate();
+    }//GEN-LAST:event_BTNeliminarActionPerformed
+
+    private void BTNcllaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcllaveActionPerformed
+        // TODO add your handling code here:
+        Opciones.add(mostrar);
+       cargac.setVisible(false);
+       cmasiva.setVisible(false);
+       modi.setVisible(false);
+       eliminar.setVisible(false);
+       mostrar.setVisible(true);
+       graphyz.setVisible(false);
+       Opciones.validate();
+    }//GEN-LAST:event_BTNcllaveActionPerformed
+
+    private void BTNestructuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNestructuraActionPerformed
+        // TODO add your handling code here:
+         Opciones.add(graphyz);
+       cargac.setVisible(false);
+       cmasiva.setVisible(false);
+       modi.setVisible(false);
+       eliminar.setVisible(false);
+       mostrar.setVisible(false);
+       graphyz.setVisible(true);
+       Opciones.validate();
+    }//GEN-LAST:event_BTNestructuraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +286,6 @@ public class MenuC extends javax.swing.JFrame {
     private javax.swing.JButton Btnatras;
     private javax.swing.JPanel Opciones;
     private javax.swing.JPanel botones;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     // End of variables declaration//GEN-END:variables
 }

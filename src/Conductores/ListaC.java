@@ -75,6 +75,20 @@ public class ListaC {
       }
       return null;
       }
+   public boolean BuscarB(String d){
+      NodoC aux=inicio;
+      int cont= 0;
+      if (inicio != null) {
+          while (cont<tam) {              
+              if (aux.getDato().getDpi().compareTo(d)==0) {
+                  return true;
+              }
+              aux=aux.getSiguiente();
+              cont++;
+          }
+      }
+      return false;
+      }
  
   // metodo de modificacion 
   public void ModificarD(String dato,Conductor modif){
@@ -124,6 +138,20 @@ public class ListaC {
               cont++;
           }
       }
+  }
+   public String DevolverCg(){
+     int cont=0;
+     String cadena="";
+     NodoC aux=inicio;
+      if (inicio!=null) {
+          while (cont<tam) {              
+              cadena=cadena+"DPI: "+aux.getDato().getDpi()+";  Nombre: "+aux.getDato().getNombre()+";  Licencia tipo: "+aux.getDato().getTdeL()+";  No. Telefono: "+aux.getDato().getTelefono()+"\n";
+              aux=aux.getSiguiente();
+              cont++;
+          }
+          return cadena;
+      }
+      return cadena;
   }
   // ordena la ista de mayor a menor
   public void ordenarListaMayorM(){
@@ -226,14 +254,14 @@ public class ListaC {
             String salida = "C:\\graphviz-2.38\\release\\bin\\dot -Tpng " + ruta + "conductores" + ".dot -o " + ruta + "conductores"+ ".png";
             Runtime rt = Runtime.getRuntime();
             rt.exec(salida);
-
             //abrir imagen
-            miDir = new File(ruta +"conductores" + ".png");
-            Desktop.getDesktop().open(miDir);
+           /* miDir = new File(ruta +"conductores" + ".png");
+            Desktop.getDesktop().open(miDir);*/
 
         } catch (IOException e) {
             System.out.println(e);
         }
+
     }
    // genera el codigo para graphyz 
    private String ListacircularG(){
