@@ -251,7 +251,7 @@ public class ListaC {
             //compilar dot y generar imagen
             File miDir = new File(".");
             String ruta = miDir.getCanonicalPath() + "\\";//ruta actual
-            String salida = "C:\\graphviz-2.38\\release\\bin\\dot -Tpng " + ruta + "conductores" + ".dot -o " + ruta + "conductores"+ ".png";
+            String salida = "dot -Tpng " + ruta + "conductores" + ".dot -o " + ruta + "conductores"+ ".png";
             Runtime rt = Runtime.getRuntime();
             rt.exec(salida);
             //abrir imagen
