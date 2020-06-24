@@ -16,6 +16,7 @@ public class listaRutas {
     public nodoRutas inicio;
     nodoRutas temporalOrigen;
     ArrayList<nodoParaCrearRuta> rutas = new ArrayList<>();
+    ArrayList<nodoParaCrearRuta> rutaActual = new ArrayList<>();
 
     public void insertarRuta(String origen_, String destino_, int tiempo) {
         if (vacia()) {
@@ -130,7 +131,6 @@ public class listaRutas {
             } catch (Exception ex) {
 
             }
-            calcularRutas();
 
         }
     }
@@ -180,7 +180,7 @@ public class listaRutas {
         }
     }
 
-    void calcularRutas() {
+    void calcularRutasGenerales() {
         nodoRutas origenes = inicio;
         while (origenes != null) {
             nodoRutas destinos = origenes.derecha;
@@ -246,6 +246,64 @@ public class listaRutas {
         if (!rutas.isEmpty()) {
             for (int i = 0; i < rutas.size(); i++) {
                 System.out.println(rutas.get(i).getTiempo() + " " + rutas.get(i).getOrigen() + " " + rutas.get(i).getDestino());
+            }
+        }
+    }
+
+    public void conseguirRuta(String origen_, String destino_) {
+        rutas.clear();
+        nodoRutas origen = inicio, copiaOrigen = inicio;
+        while (origen != null) {
+            if (origen.getContenido().equalsIgnoreCase(origen_)) {
+//                System.out.println("encontro origen");
+                copiaOrigen = origen;
+                break;
+            }
+            origen = origen.abajo;
+        }
+        while (origen != null) {
+//            System.out.println("origen para abajo");
+            nodoRutas destinos = origen.derecha;
+            while (destinos != null) {
+                revisarRutas(origen, destinos);
+                destinos = destinos.derecha;
+            }
+            origen = origen.abajo;
+        }
+        origen = inicio;
+        while (origen != null && origen != copiaOrigen) {
+//            System.out.println("hasta origen");
+            nodoRutas destinos = origen.derecha;
+            while (destinos != null) {
+                revisarRutas(origen, destinos);
+                destinos = destinos.derecha;
+            }
+            origen = origen.abajo;
+        }
+        System.out.println("De: " + origen_ + " Hacia: " + destino_);
+        leerRuta(origen_, destino_);
+        tiempoRuta(destino_);
+
+    }
+
+    void leerRuta(String origen_, String destino_) {
+        if (!origen_.equalsIgnoreCase(destino_)) {
+            for (int i = 0; i < rutas.size(); i++) {
+                if (rutas.get(i).getDestino().equalsIgnoreCase(destino_)) {
+                    System.out.println(rutas.get(i).getDestino() + " <- " + rutas.get(i).getOrigen());
+                    destino_ = rutas.get(i).getOrigen();
+                    leerRuta(origen_, destino_);
+                    break;
+                }
+            }
+        }
+    }
+
+    void tiempoRuta(String destino_) {
+        for (int i = 0; i < rutas.size(); i++) {
+            if (rutas.get(i).getDestino().equalsIgnoreCase(destino_)) {
+                System.out.println("Tiempo: " + rutas.get(i).getTiempo());
+                break;
             }
         }
     }
