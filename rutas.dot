@@ -1,2 +1,2 @@
 digraph G { 
-node [style=circle, color = blue];Oviedo -> Bilbao[label="304"];Bilbao -> Zaragoza[label="324"];Bilbao -> Madrid[label="395"];Bilbao -> Valladolid[label="280"];Zaragoza -> Barcelona[label="296"];Zaragoza -> Madrid[label="325"];Barcelona -> Gerona[label="100"]; label = "Rutas";} 
+node [style=circle, color = blue];Oviedo -> Bilbao[label="304"];Bilbao -> Zaragoza[label="324"];Bilbao -> Madrid[label="395"];Bilbao -> Valladolid[label="280"];Zaragoza -> Barcelona[label="296"];Zaragoza -> Madrid[label="325"];Barcelona -> Gerona[label="100"];Madrid -> Barcelona[label="270"]; label = "Rutas";} 

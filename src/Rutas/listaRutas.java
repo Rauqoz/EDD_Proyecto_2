@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -14,6 +15,7 @@ public class listaRutas {
 
     public nodoRutas inicio;
     nodoRutas temporalOrigen;
+    ArrayList<nodoParaCrearRuta> rutas = new ArrayList<>();
 
     public void insertarRuta(String origen_, String destino_, int tiempo) {
         if (vacia()) {
@@ -128,6 +130,7 @@ public class listaRutas {
             } catch (Exception ex) {
 
             }
+            calcularRutas();
 
         }
     }
@@ -177,21 +180,74 @@ public class listaRutas {
         }
     }
 
-//    void graficar3(nodoRutas tempo_, FileWriter archivo,nodoRutas padre) {
-//        if (tempo_ != null) {
-//            try {
-//                archivo.write(" -> " + tempo_.contenido + "[label=\"" + tempo_.tiempo + "\"];");
-//                graficar3(tempo_.derecha, archivo,padre);
-//            } catch (IOException ex) {
-//                Logger.getLogger(listaRutas.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//        } else {
-//            try {
-//                archivo.write("\n");
-//            } catch (IOException ex) {
-//                Logger.getLogger(listaRutas.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    }
+    void calcularRutas() {
+        nodoRutas origenes = inicio;
+        while (origenes != null) {
+            nodoRutas destinos = origenes.derecha;
+            while (destinos != null) {
+                revisarRutas(origenes, destinos);
+                destinos = destinos.derecha;
+            }
+            origenes = origenes.abajo;
+
+        }
+
+    }
+
+    void revisarRutas(nodoRutas origen, nodoRutas destino) {
+        nodoParaCrearRuta nuevo = new nodoParaCrearRuta(destino.tiempo, origen.contenido, destino.contenido);
+//        System.out.println("ori: " + origen.getContenido() + " desti: " + destino.getContenido());
+        if (rutas.isEmpty()) {
+            rutas.add(new nodoParaCrearRuta(0, "", origen.getContenido()));
+            rutas.add(nuevo);
+        } else {
+            boolean bandera = false;
+            for (int i = 0; i < rutas.size(); i++) {
+                if (rutas.get(i).getDestino().equalsIgnoreCase(origen.getContenido())) {
+//                    System.out.println("origen existe en destinos");
+                    nuevo.setTiempo(nuevo.getTiempo() + rutas.get(i).getTiempo());
+                    boolean b2 = false;
+                    for (int j = 0; j < rutas.size(); j++) {
+                        if (rutas.get(j).getDestino().equalsIgnoreCase(destino.getContenido())) {
+//                            System.out.println("tambien destino existe en destinos");
+                            if (nuevo.getTiempo() < rutas.get(j).getTiempo()) {
+//                                System.out.println("tambien es menor");
+                                rutas.remove(j);
+                                rutas.add(nuevo);
+                            }
+                            b2 = true;
+                        }
+                    }
+                    if (!b2) {
+                        rutas.add(nuevo);
+                    }
+                    bandera = true;
+                    break;
+                } else if (rutas.get(i).getDestino().equalsIgnoreCase(destino.getContenido())) {
+//                    System.out.println("destino existe en destinos");
+                    if (nuevo.getTiempo() < rutas.get(i).getTiempo()) {
+//                        System.out.println("si es menor");
+                        rutas.remove(i);
+                        rutas.add(nuevo);
+                        bandera = true;
+                        break;
+                    }
+                }
+            }
+            if (!bandera) {
+                rutas.add(nuevo);
+            }
+        }
+
+    }
+
+    public void mostrarRutas() {
+        System.out.println("---------------- Rutas ----------------");
+        if (!rutas.isEmpty()) {
+            for (int i = 0; i < rutas.size(); i++) {
+                System.out.println(rutas.get(i).getTiempo() + " " + rutas.get(i).getOrigen() + " " + rutas.get(i).getDestino());
+            }
+        }
+    }
+
 }

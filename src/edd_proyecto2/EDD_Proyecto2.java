@@ -10,7 +10,8 @@ public class EDD_Proyecto2 {
         listaRutas p = new listaRutas();
         p.cargaMasiva();
         p.graficar();
-        p.mostrarOrigenes(p.inicio);
+        p.mostrarRutas();
+
     }
 
 }
