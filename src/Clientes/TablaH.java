@@ -42,6 +42,7 @@ public class TablaH {
     public void Insertar(Cliente dato) {
         NodoH nuevo = new NodoH(dato);
         NodoH aux, aux1 = null;
+        int veri=GenerarLLave(dato.getDpi()).intValue();
         float por = Porcentaje();
         if (por < 0.75) {
             if (tabla[GenerarLLave(dato.getDpi()).intValue()] == null) {
@@ -236,9 +237,9 @@ public class TablaH {
     }
 
     public boolean Modificicar(String d, Cliente mo) {
-        NodoH aux = Busqueda(d);
-        if (aux != null) {
-            aux.setDato(mo);
+        
+        if (Eliminar(d)) {
+            Insertar(mo);
             return true;
         }
         return false;

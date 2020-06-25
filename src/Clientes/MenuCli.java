@@ -17,9 +17,14 @@ public class MenuCli extends javax.swing.JFrame {
      * Creates new form MenuC
      */
     Climasiva carga;
+    AgregarCli registro;
+    ModificaionCli modificar;
+
     public MenuCli() {
         initComponents();
-        carga=new Climasiva();
+        carga = new Climasiva();
+        registro = new AgregarCli();
+        modificar = new ModificaionCli();
     }
 
     /**
@@ -35,7 +40,7 @@ public class MenuCli extends javax.swing.JFrame {
         Btnatras = new javax.swing.JButton();
         BTNcarga = new javax.swing.JButton();
         Btnagregar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        Btnmodificar = new javax.swing.JButton();
         BTNeliminar = new javax.swing.JButton();
         BTNcllave = new javax.swing.JButton();
         BTNestructura = new javax.swing.JButton();
@@ -66,11 +71,11 @@ public class MenuCli extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(153, 153, 153));
-        jButton4.setText("Modificar ");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        Btnmodificar.setBackground(new java.awt.Color(153, 153, 153));
+        Btnmodificar.setText("Modificar ");
+        Btnmodificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                BtnmodificarActionPerformed(evt);
             }
         });
 
@@ -118,7 +123,7 @@ public class MenuCli extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(botonesLayout.createSequentialGroup()
-                        .addComponent(jButton4)
+                        .addComponent(Btnmodificar)
                         .addGap(18, 18, 18)
                         .addComponent(BTNeliminar)
                         .addGap(18, 18, 18)
@@ -141,7 +146,7 @@ public class MenuCli extends javax.swing.JFrame {
                 .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTNcarga)
                     .addComponent(Btnagregar)
-                    .addComponent(jButton4)
+                    .addComponent(Btnmodificar)
                     .addComponent(BTNeliminar)
                     .addComponent(BTNcllave)
                     .addComponent(BTNestructura))
@@ -175,19 +180,30 @@ public class MenuCli extends javax.swing.JFrame {
 
         Opciones.add(carga);
         carga.setVisible(true);
+        registro.setVisible(false);
+        modificar.setVisible(false);
         Opciones.validate();
 
     }//GEN-LAST:event_BTNcargaActionPerformed
 
     private void BtnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnagregarActionPerformed
         // TODO add your handling code here:
+        Opciones.add(registro);
+        carga.setVisible(false);
+        registro.setVisible(true);
+        modificar.setVisible(false);
+        Opciones.validate();
 
     }//GEN-LAST:event_BtnagregarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void BtnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnmodificarActionPerformed
         // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton4ActionPerformed
+        Opciones.add(modificar);
+        carga.setVisible(false);
+        registro.setVisible(false);
+        modificar.setVisible(true);
+        Opciones.validate();
+    }//GEN-LAST:event_BtnmodificarActionPerformed
 
     private void BTNeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNeliminarActionPerformed
         // TODO add your handling code here:
@@ -247,9 +263,9 @@ public class MenuCli extends javax.swing.JFrame {
     private javax.swing.JButton BTNestructura;
     private javax.swing.JButton Btnagregar;
     private javax.swing.JButton Btnatras;
+    private javax.swing.JButton Btnmodificar;
     private javax.swing.JPanel Opciones;
     private javax.swing.JPanel botones;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
