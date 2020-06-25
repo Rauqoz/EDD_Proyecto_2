@@ -19,12 +19,18 @@ public class MenuCli extends javax.swing.JFrame {
     Climasiva carga;
     AgregarCli registro;
     ModificaionCli modificar;
+    EliminarCli eliminar;
+    MostrarCLie mostrar;
+    EstructuraCli grafica;
 
     public MenuCli() {
         initComponents();
         carga = new Climasiva();
         registro = new AgregarCli();
         modificar = new ModificaionCli();
+        eliminar = new EliminarCli();
+        mostrar = new MostrarCLie();
+        grafica = new EstructuraCli();
     }
 
     /**
@@ -182,6 +188,9 @@ public class MenuCli extends javax.swing.JFrame {
         carga.setVisible(true);
         registro.setVisible(false);
         modificar.setVisible(false);
+        eliminar.setVisible(false);
+        mostrar.setVisible(false);
+        grafica.setVisible(false);
         Opciones.validate();
 
     }//GEN-LAST:event_BTNcargaActionPerformed
@@ -191,7 +200,10 @@ public class MenuCli extends javax.swing.JFrame {
         Opciones.add(registro);
         carga.setVisible(false);
         registro.setVisible(true);
+        eliminar.setVisible(false);
         modificar.setVisible(false);
+        mostrar.setVisible(false);
+        grafica.setVisible(false);
         Opciones.validate();
 
     }//GEN-LAST:event_BtnagregarActionPerformed
@@ -201,23 +213,47 @@ public class MenuCli extends javax.swing.JFrame {
         Opciones.add(modificar);
         carga.setVisible(false);
         registro.setVisible(false);
+        eliminar.setVisible(false);
         modificar.setVisible(true);
+        mostrar.setVisible(false);
+        grafica.setVisible(false);
         Opciones.validate();
     }//GEN-LAST:event_BtnmodificarActionPerformed
 
     private void BTNeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNeliminarActionPerformed
         // TODO add your handling code here:
-        ;
+        Opciones.add(eliminar);
+        carga.setVisible(false);
+        registro.setVisible(false);
+        modificar.setVisible(false);
+        eliminar.setVisible(true);
+        mostrar.setVisible(false);
+        grafica.setVisible(false);
+        Opciones.validate();
     }//GEN-LAST:event_BTNeliminarActionPerformed
 
     private void BTNcllaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcllaveActionPerformed
         // TODO add your handling code here:
-
+        Opciones.add(mostrar);
+        carga.setVisible(false);
+        registro.setVisible(false);
+        modificar.setVisible(false);
+        eliminar.setVisible(false);
+        mostrar.setVisible(true);
+        grafica.setVisible(false);
+        Opciones.validate();
     }//GEN-LAST:event_BTNcllaveActionPerformed
 
     private void BTNestructuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNestructuraActionPerformed
         // TODO add your handling code here:
-
+        Opciones.add(grafica);
+        carga.setVisible(false);
+        registro.setVisible(false);
+        modificar.setVisible(false);
+        eliminar.setVisible(false);
+        mostrar.setVisible(false);
+        grafica.setVisible(true);
+        Opciones.validate();
     }//GEN-LAST:event_BTNestructuraActionPerformed
 
     /**

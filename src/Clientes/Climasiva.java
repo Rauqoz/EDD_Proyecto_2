@@ -47,7 +47,7 @@ public class Climasiva extends javax.swing.JPanel {
         setBackground(new java.awt.Color(102, 102, 102));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setText("Elegir Texto ");
+        jButton1.setText("Elegir Archivo de Carga");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

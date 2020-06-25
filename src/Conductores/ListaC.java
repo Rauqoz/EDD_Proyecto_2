@@ -92,18 +92,8 @@ public class ListaC {
  
   // metodo de modificacion 
   public void ModificarD(String dato,Conductor modif){
-  NodoC aux =inicio;
-  int conta=0;
-      if (inicio !=null) {
-          while (conta<tam) {              
-              if (aux.getDato().getDpi().compareTo(dato)==0) {
-                  aux.setDato(modif);
-                  break;
-              }
-              conta++;
-              aux=aux.getSiguiente();
-          }
-      }
+      EliminarD(dato);
+      InsertarUltimo(modif);
   }
   // elimina dato 
   public void EliminarD(String dato){

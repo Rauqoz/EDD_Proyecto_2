@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
+import static edd_proyecto2.EDD_Proyecto2.*;
 
 /**
  *
@@ -24,15 +25,8 @@ public class EstructuraCli extends javax.swing.JPanel {
     /**
      * Creates new form Estructura
      */
-    ListaC lista;
-
     public EstructuraCli() {
         initComponents();
-    }
-
-    public EstructuraCli(ListaC n) {
-        initComponents();
-        lista = n;
     }
 
     /**
@@ -97,10 +91,10 @@ public class EstructuraCli extends javax.swing.JPanel {
         // TODO add your handling code here:
       
         try {
-            lista.GenerarGraphyz();
+            tablita.GenerarGrafico();
             File miDir = new File(".");
             String ruta;
-            ruta = miDir.getCanonicalPath() + "\\"+"conductores"+ ".png";
+            ruta = miDir.getCanonicalPath() + "\\"+"Tablahash"+ ".png";
             ImageIcon fot = new ImageIcon(ruta);
             Icon icono = new ImageIcon(fot.getImage().getScaledInstance(Limagen.getWidth(), Limagen.getHeight(), Image.SCALE_DEFAULT));
             Limagen.setIcon(icono);

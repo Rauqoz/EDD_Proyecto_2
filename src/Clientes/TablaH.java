@@ -319,7 +319,7 @@ public class TablaH {
                     contador = 0;
                     aux = tabla[i].getDerecha();
                     while (aux != null) {
-                        cc = cc + "f" + i + "n" + contador + "[label = \"" + aux.getDato().getDpi() + "\" width = 1.5, height=.05, style = filled,color=\"chocolate1\"];\n";
+                        cc = cc + "f" + i + "n" + contador + "[label = \"" + aux.getDato().getDpi() + "\" width = 1.5, height=.05, style = filled,color=\"chartreuse2\"];\n";
                         contador++;
                         aux = aux.getDerecha();
                     }

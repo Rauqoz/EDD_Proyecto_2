@@ -4,13 +4,12 @@
  * and open the template in the editor.
  */
 package Conductores;
-
+import static edd_proyecto2.EDD_Proyecto2.*;
 /**
  *
  * @author josed
  */
 public class MenuC extends javax.swing.JFrame {
- public ListaC lista;
  Cmasiva cmasiva;
  AgregarC cargac;
  ModificaionC modi;
@@ -21,13 +20,12 @@ public class MenuC extends javax.swing.JFrame {
      * Creates new form MenuC
      */
     public MenuC() {
-        lista =new ListaC();
-        modi=new ModificaionC(lista);
-        cmasiva=new Cmasiva(lista);
-        cargac =new AgregarC(lista);
-        eliminar=new EliminarC(lista);
-        mostrar=new MostrarCL(lista);
-        graphyz=new Estructura(lista);
+        modi=new ModificaionC();
+        cmasiva=new Cmasiva();
+        cargac =new AgregarC();
+        eliminar=new EliminarC();
+        mostrar=new MostrarCL();
+        graphyz=new Estructura();
         initComponents();
     }
 
@@ -48,6 +46,7 @@ public class MenuC extends javax.swing.JFrame {
         BTNeliminar = new javax.swing.JButton();
         BTNcllave = new javax.swing.JButton();
         BTNestructura = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Opciones = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,6 +105,9 @@ public class MenuC extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setText("Menu de Conductores");
+
         javax.swing.GroupLayout botonesLayout = new javax.swing.GroupLayout(botones);
         botones.setLayout(botonesLayout);
         botonesLayout.setHorizontalGroup(
@@ -113,28 +115,33 @@ public class MenuC extends javax.swing.JFrame {
             .addGroup(botonesLayout.createSequentialGroup()
                 .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(botonesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Btnatras, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(botonesLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(BTNcarga)
                         .addGap(35, 35, 35)
-                        .addComponent(Btnagregar)
-                        .addGap(18, 18, 18)
+                        .addComponent(Btnagregar))
+                    .addGroup(botonesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Btnatras, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(botonesLayout.createSequentialGroup()
                         .addComponent(jButton4)
                         .addGap(18, 18, 18)
                         .addComponent(BTNeliminar)
                         .addGap(18, 18, 18)
                         .addComponent(BTNcllave)
                         .addGap(18, 18, 18)
-                        .addComponent(BTNestructura)))
+                        .addComponent(BTNestructura))
+                    .addComponent(jLabel1))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         botonesLayout.setVerticalGroup(
             botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Btnatras)
+                .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Btnatras)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTNcarga)
@@ -287,5 +294,6 @@ public class MenuC extends javax.swing.JFrame {
     private javax.swing.JPanel Opciones;
     private javax.swing.JPanel botones;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

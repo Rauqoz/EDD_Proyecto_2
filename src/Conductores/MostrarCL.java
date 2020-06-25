@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Conductores;
-
+import static edd_proyecto2.EDD_Proyecto2.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,16 +16,12 @@ public class MostrarCL extends javax.swing.JPanel {
     /**
      * Creates new form MostrarCL
      */
-    ListaC lista;
 
     public MostrarCL() {
         initComponents();
     }
 
-    public MostrarCL(ListaC n) {
-        initComponents();
-        lista = n;
-    }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.

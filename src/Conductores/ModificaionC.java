@@ -6,24 +6,22 @@
 package Conductores;
 
 import javax.swing.JOptionPane;
-
+import static edd_proyecto2.EDD_Proyecto2.*;
 /**
  *
  * @author josed
  */
 public class ModificaionC extends javax.swing.JPanel {
 
-    ListaC lista;
+    String tempdpi;
     /**
      * Creates new form ModificaionC
      */
     public ModificaionC() {
         initComponents();
+        tempdpi="";
     }
-    public ModificaionC(ListaC n) {
-        lista=n;
-        initComponents();
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,7 +190,7 @@ public class ModificaionC extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         if (!dpi.getText().equals("") && !nombre.getText().equals("") && !apellido.getText().equals("") && !tplicencia.getText().equals("")) {
-            lista.ModificarD(dpi.getText(),new Conductor(dpi.getText(), nombre.getText(), apellido.getText(), tplicencia.getText(), genero.getText(), fecnacimiento.getText(), telefono.getText(), direccion.getText()));
+            lista.ModificarD(tempdpi,new Conductor(dpi.getText(), nombre.getText(), apellido.getText(), tplicencia.getText(), genero.getText(), fecnacimiento.getText(), telefono.getText(), direccion.getText()));
             lista.ordenarListaMenorM();
             JOptionPane.showMessageDialog(null, "Modificacion Exitosa!!!");
             limpiar();
@@ -222,6 +220,7 @@ public class ModificaionC extends javax.swing.JPanel {
             fecnacimiento.setText(nuevo.getDato().getFnac());
             telefono.setText(nuevo.getDato().getTelefono());
             direccion.setText(nuevo.getDato().getDireccion());
+            tempdpi=nuevo.getDato().getDpi();
 
         } else {
             JOptionPane.showMessageDialog(null, "Conductor no encontrado!!!");

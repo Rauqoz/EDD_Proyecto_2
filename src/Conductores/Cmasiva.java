@@ -5,28 +5,24 @@
  */
 package Conductores;
 
-import java.awt.FileDialog;
 import java.io.*;
-import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.*;
+import static edd_proyecto2.EDD_Proyecto2.*;
 
 /**
  *
  * @author josed
  */
 public class Cmasiva extends javax.swing.JPanel {
-    ListaC lista;
+
     /**
      * Creates new form Cmasiva
      */
     public Cmasiva() {
         initComponents();
     }
-      public Cmasiva(ListaC entrada) {
-        lista=entrada;
-          initComponents();
-    }
+
 
 
     /**
@@ -46,7 +42,7 @@ public class Cmasiva extends javax.swing.JPanel {
         setBackground(new java.awt.Color(102, 102, 102));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setText("Elegir Texto ");
+        jButton1.setText("Elegir Archivo de Carga");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

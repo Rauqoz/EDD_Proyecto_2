@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
+import static edd_proyecto2.EDD_Proyecto2.*;
 
 /**
  *
@@ -23,16 +24,11 @@ public class Estructura extends javax.swing.JPanel {
     /**
      * Creates new form Estructura
      */
-    ListaC lista;
 
     public Estructura() {
         initComponents();
     }
 
-    public Estructura(ListaC n) {
-        initComponents();
-        lista = n;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

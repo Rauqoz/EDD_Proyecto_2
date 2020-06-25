@@ -7,7 +7,7 @@ package Clientes;
 
 import Conductores.*;
 import javax.swing.JOptionPane;
-
+import static edd_proyecto2.EDD_Proyecto2.*;
 /**
  *
  * @author josed
@@ -17,15 +17,9 @@ public class MostrarCLie extends javax.swing.JPanel {
     /**
      * Creates new form MostrarCL
      */
-    ListaC lista;
-
+    
     public MostrarCLie() {
         initComponents();
-    }
-
-    public MostrarCLie(ListaC n) {
-        initComponents();
-        lista = n;
     }
 
     /**
@@ -65,6 +59,7 @@ public class MostrarCLie extends javax.swing.JPanel {
         });
 
         mostrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        mostrar.setAutoscrolls(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,8 +80,8 @@ public class MostrarCLie extends javax.swing.JPanel {
                         .addComponent(dpi, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addComponent(mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,8 +95,8 @@ public class MostrarCLie extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(68, 68, 68)
-                .addComponent(mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addComponent(mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -114,9 +109,10 @@ public class MostrarCLie extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        NodoC nuevo = lista.Buscar(dpi.getText());
+        NodoH nuevo = tablita.Busqueda(dpi.getText());
         if (nuevo != null) {
-            mostrar.setText("Dpi: "+nuevo.getDato().getDpi()+"; Nombre:"+nuevo.getDato().getNombre()+" "+nuevo.getDato().getAppelido()+"; tipo de licencia: "+nuevo.getDato().getTdeL()+"; Telefono: "+nuevo.getDato().getTelefono());
+            mostrar.setText("Dpi: "+nuevo.getDato().getDpi()+"; Nombre:"+nuevo.getDato().getNombre()+" "+nuevo.getDato().getApellido()+"; Telefono: "+nuevo.getDato().getTelefono()+ "; Direcion: "+nuevo.getDato().getDireccion()+"; ");
+            dpi.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "Conductor no encontrado!!!");
         }

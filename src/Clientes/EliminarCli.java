@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package Clientes;
-
-import Conductores.*;
+import static edd_proyecto2.EDD_Proyecto2.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,16 +13,12 @@ import javax.swing.JOptionPane;
  */
 public class EliminarCli extends javax.swing.JPanel {
 
-    ListaC lista;
     /**
      * Creates new form EliminarC
      */
+    
     public EliminarCli() {
         initComponents();
-    }
-    public EliminarCli(ListaC n) {
-        initComponents();
-        lista=n;
     }
 
     /**
@@ -102,9 +97,11 @@ public class EliminarCli extends javax.swing.JPanel {
 
     private void BtneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtneliminarActionPerformed
         // TODO add your handling code here:
-        if (lista.BuscarB(dpi.getText())) {
-            lista.EliminarD(dpi.getText());
+        if (tablita.Eliminar(dpi.getText())) {
+            tablita.Imprimir();
+            System.out.println(tablita.getTama());
             JOptionPane.showMessageDialog(null, "Eliminado Exitosamente!!!");
+            dpi.setText("");
         }else{
         JOptionPane.showMessageDialog(null, "conductor no encontrado!!!");
         }

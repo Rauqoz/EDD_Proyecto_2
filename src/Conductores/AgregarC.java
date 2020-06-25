@@ -7,7 +7,7 @@ package Conductores;
 
 import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 import javax.swing.JOptionPane;
-
+import static edd_proyecto2.EDD_Proyecto2.*;
 /**
  *
  * @author josed
@@ -17,13 +17,9 @@ public class AgregarC extends javax.swing.JPanel {
     /**
      * Creates new form AgregarC
      */
-    ListaC lista;
+
     public AgregarC() {
         initComponents();
-    }
-     public AgregarC(ListaC lista) {
-         this.lista=lista;
-         initComponents();
     }
 
     /**

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Conductores;
+import static edd_proyecto2.EDD_Proyecto2.*;
 
 import javax.swing.JOptionPane;
 
@@ -13,16 +14,12 @@ import javax.swing.JOptionPane;
  */
 public class EliminarC extends javax.swing.JPanel {
 
-    ListaC lista;
+
     /**
      * Creates new form EliminarC
      */
     public EliminarC() {
         initComponents();
-    }
-    public EliminarC(ListaC n) {
-        initComponents();
-        lista=n;
     }
 
     /**
@@ -104,6 +101,7 @@ public class EliminarC extends javax.swing.JPanel {
         if (lista.BuscarB(dpi.getText())) {
             lista.EliminarD(dpi.getText());
             JOptionPane.showMessageDialog(null, "Eliminado Exitosamente!!!");
+            dpi.setText("");
         }else{
         JOptionPane.showMessageDialog(null, "conductor no encontrado!!!");
         }
