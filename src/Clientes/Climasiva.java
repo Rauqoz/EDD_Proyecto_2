@@ -5,30 +5,30 @@
  */
 package Clientes;
 
-import Conductores.*;
+import edd_proyecto2.EDD_Proyecto2.*;
+import Clientes.*;
+import static edd_proyecto2.EDD_Proyecto2.*;
+import edd_proyecto2.EDD_Proyecto2;
 import java.awt.FileDialog;
 import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.*;
 
+
 /**
  *
  * @author josed
  */
 public class Climasiva extends javax.swing.JPanel {
-    ListaC lista;
+    
     /**
      * Creates new form Cmasiva
      */
     public Climasiva() {
         initComponents();
     }
-      public Climasiva(ListaC entrada) {
-        lista=entrada;
-          initComponents();
-    }
-
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,9 +96,12 @@ public class Climasiva extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Carga();
-        lista.ordenarListaMenorM();
         cargados.enable(false);
-        cargados.setText(lista.DevolverCg());
+        cargados.setText(tablita.DatosCargados());
+        tablita.Imprimir();
+        tablita.GenerarGrafico();
+        System.out.println(tablita.getTama());
+        System.out.println(tablita.Porcentaje());
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -127,8 +130,8 @@ public void Carga(){
             bb.close();
             psplitPM=cadena.split(";");
             for (int i = 0; i < psplitPM.length; i++) {
-                ssplitPOR=psplitPM[i].split("%");
-                lista.InsertarUltimo(new Conductor(ssplitPOR[0],ssplitPOR[1],ssplitPOR[2],ssplitPOR[3],ssplitPOR[4],ssplitPOR[5],ssplitPOR[6],ssplitPOR[7]));
+                ssplitPOR=psplitPM[i].split(",");
+                tablita.Insertar(new Cliente(ssplitPOR[0],ssplitPOR[1],ssplitPOR[2],ssplitPOR[3],ssplitPOR[4],ssplitPOR[5],ssplitPOR[6]));
             }
 			
         } catch (FileNotFoundException e) {

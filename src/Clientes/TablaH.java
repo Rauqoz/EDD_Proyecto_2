@@ -99,6 +99,27 @@ public class TablaH {
         }
     }
 
+    public String DatosCargados() {
+        NodoH aux = null;
+        String nu = "";
+        for (int i = 0; i < tabla.length; i++) {
+            aux = tabla[i];
+            if (aux != null && aux.derecha != null) {
+                nu = nu + "DPI: " + aux.getDato().getDpi() + "; Nombre: " + aux.getDato().getNombre() + " " + aux.getDato().getApellido() + "; Telefono: " + aux.getDato().getTelefono() + "; Direccion: " + aux.getDato().getDireccion() + "\n";
+                aux = aux.getDerecha();
+                while (aux != null) {
+                    nu = nu + "DPI: " + aux.getDato().getDpi() + "; Nombre: " + aux.getDato().getNombre() + " " + aux.getDato().getApellido() + "; Telefono: " + aux.getDato().getTelefono() + "; Direccion: " + aux.getDato().getDireccion() + "\n";
+                    aux = aux.getDerecha();
+                }
+            } else {
+                if (aux != null) {
+                    nu = nu + "DPI: " + aux.getDato().getDpi() + "; Nombre: " + aux.getDato().getNombre() + " " + aux.getDato().getApellido() + "; Telefono: " + aux.getDato().getTelefono() + "; Direccion: " + aux.getDato().getDireccion() + "\n";
+                }
+            }
+        }
+        return nu;
+    }
+
     public void Imprimir2() {
         NodoH aux = null;
         String nu = "";
@@ -313,7 +334,7 @@ public class TablaH {
             if (tabla[i] != null) {
                 if (tabla[i].getDerecha() != null) {
                     contador = 0;
-                    aux=tabla[i].getDerecha();
+                    aux = tabla[i].getDerecha();
                     cc = cc + "node0:f" + i;
                     while (aux != null) {
                         cc = cc + "->" + "f" + i + "n" + contador + "";

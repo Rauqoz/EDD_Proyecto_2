@@ -12,11 +12,14 @@ import Clientes.*;
  * @author josed
  */
 public class MenuCli extends javax.swing.JFrame {
+
     /**
      * Creates new form MenuC
      */
+    Climasiva carga;
     public MenuCli() {
         initComponents();
+        carga=new Climasiva();
     }
 
     /**
@@ -169,9 +172,11 @@ public class MenuCli extends javax.swing.JFrame {
 
     private void BTNcargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcargaActionPerformed
         // TODO add your handling code here:
-        
 
-      
+        Opciones.add(carga);
+        carga.setVisible(true);
+        Opciones.validate();
+
     }//GEN-LAST:event_BTNcargaActionPerformed
 
     private void BtnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnagregarActionPerformed
@@ -181,12 +186,12 @@ public class MenuCli extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void BTNeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNeliminarActionPerformed
         // TODO add your handling code here:
-;
+        ;
     }//GEN-LAST:event_BTNeliminarActionPerformed
 
     private void BTNcllaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcllaveActionPerformed
@@ -196,7 +201,7 @@ public class MenuCli extends javax.swing.JFrame {
 
     private void BTNestructuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNestructuraActionPerformed
         // TODO add your handling code here:
-  
+
     }//GEN-LAST:event_BTNestructuraActionPerformed
 
     /**
