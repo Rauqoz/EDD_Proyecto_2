@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -15,10 +14,10 @@ public class listaRutas {
 
     public nodoRutas inicio;
     nodoRutas temporalOrigen;
-    ArrayList<nodoParaCrearRuta> rutas = new ArrayList<>();
-    ArrayList<nodoParaCrearRuta> rutaActual = new ArrayList<>();
+    String[][] distancias;
+    String[][] recorridos;
 
-    public void insertarRuta(String origen_, String destino_, int tiempo) {
+    void insertarRuta(String origen_, String destino_, int tiempo) {
         if (vacia()) {
             nodoRutas primero = new nodoRutas(origen_);
             inicio = primero;
@@ -94,7 +93,7 @@ public class listaRutas {
         return nuevo;
     }
 
-    public void mostrarOrigenes(nodoRutas tempo_) {
+    void mostrarOrigenes(nodoRutas tempo_) {
         if (tempo_ != null) {
             System.out.print(tempo_.contenido);
             mostrarDestinos(tempo_.derecha);
@@ -103,7 +102,7 @@ public class listaRutas {
 
     }
 
-    public void mostrarDestinos(nodoRutas tempo_) {
+    void mostrarDestinos(nodoRutas tempo_) {
         if (tempo_ != null) {
             System.out.print(" - " + tempo_.contenido + " " + tempo_.tiempo);
             mostrarDestinos(tempo_.derecha);
@@ -131,11 +130,12 @@ public class listaRutas {
             } catch (Exception ex) {
 
             }
+            graficar();
 
         }
     }
 
-    public void graficar() {
+    void graficar() {
         FileWriter archivo;
         try {
             archivo = new FileWriter("rutas.dot");
@@ -180,132 +180,138 @@ public class listaRutas {
         }
     }
 
-    void calcularRutasGenerales() {
-        nodoRutas origenes = inicio;
-        while (origenes != null) {
-            nodoRutas destinos = origenes.derecha;
-            while (destinos != null) {
-                revisarRutas(origenes, destinos);
-                destinos = destinos.derecha;
-            }
-            origenes = origenes.abajo;
+    int calcularTamaño() {
+        nodoRutas tempo = inicio;
+        int tamaño = 0;
+        while (tempo != null) {
+            tamaño++;
+            tempo = tempo.abajo;
+        }
+        return tamaño;
+    }
+
+    void llenarRutas() {
+        int tamaño = calcularTamaño();
+        distancias = new String[tamaño][tamaño];
+        recorridos = new String[tamaño][tamaño];
+        nodoRutas temporal = inicio;
+        int marca = 0;
+        while (temporal != null) {
+            distancias[0][marca] = temporal.getContenido();
+            distancias[marca][0] = temporal.getContenido();
+            recorridos[0][marca] = temporal.getContenido();
+            recorridos[marca][0] = temporal.getContenido();
+            marca++;
+            temporal = temporal.abajo;
 
         }
+        for (int i = 1; i < tamaño; i++) {
+            for (int j = 1; j < tamaño; j++) {
+                recorridos[i][j] = recorridos[0][j];
+            }
+        }
+        for (int i = 1; i < tamaño; i++) {
+            for (int j = 1; j < tamaño; j++) {
+                if (distancias[i][j] == null) {
+                    distancias[i][j] = "Infinity";
+                }
+            }
+        }
+        for (int i = 0; i < tamaño; i++) {
+            distancias[i][i] = "0";
+            recorridos[i][i] = "-";
+        }
+
+        temporal = inicio;
+        while (temporal != null) {
+            nodoRutas otro = temporal.derecha;
+            while (otro != null) {
+                for (int i = 0; i < tamaño; i++) {
+                    for (int j = 0; j < tamaño; j++) {
+                        if (distancias[i][0].equalsIgnoreCase(temporal.getContenido()) && distancias[0][j].equalsIgnoreCase(otro.getContenido())) {
+                            distancias[i][j] = String.valueOf(otro.getTiempo());
+                            break;
+                        }
+                    }
+                }
+                otro = otro.derecha;
+            }
+            temporal = temporal.abajo;
+        }
+        algoritmoFloyd();
 
     }
 
-    void revisarRutas(nodoRutas origen, nodoRutas destino) {
-        nodoParaCrearRuta nuevo = new nodoParaCrearRuta(destino.tiempo, origen.contenido, destino.contenido);
-//        System.out.println("ori: " + origen.getContenido() + " desti: " + destino.getContenido());
-        if (rutas.isEmpty()) {
-            rutas.add(new nodoParaCrearRuta(0, "", origen.getContenido()));
-            rutas.add(nuevo);
-        } else {
-            boolean bandera = false;
-            for (int i = 0; i < rutas.size(); i++) {
-                if (rutas.get(i).getDestino().equalsIgnoreCase(origen.getContenido())) {
-//                    System.out.println("origen existe en destinos");
-                    nuevo.setTiempo(nuevo.getTiempo() + rutas.get(i).getTiempo());
-                    boolean b2 = false;
-                    for (int j = 0; j < rutas.size(); j++) {
-                        if (rutas.get(j).getDestino().equalsIgnoreCase(destino.getContenido())) {
-//                            System.out.println("tambien destino existe en destinos");
-                            if (nuevo.getTiempo() < rutas.get(j).getTiempo()) {
-//                                System.out.println("tambien es menor");
-                                rutas.remove(j);
-                                rutas.add(nuevo);
-                            }
-                            b2 = true;
-                        }
+    void algoritmoFloyd() {
+        int tamaño = calcularTamaño();
+
+        for (int k = 1; k < tamaño; k++) {
+            for (int i = 1; i < tamaño; i++) {
+                for (int j = 1; j < tamaño; j++) {
+                    double dato = Double.parseDouble(distancias[i][k]) + Double.parseDouble(distancias[k][j]);
+                    if (Double.parseDouble(distancias[i][j]) > dato) {
+                        distancias[i][j] = String.valueOf(dato);
+                        recorridos[i][j] = distancias[0][k];
+
                     }
-                    if (!b2) {
-                        rutas.add(nuevo);
-                    }
-                    bandera = true;
-                    break;
-                } else if (rutas.get(i).getDestino().equalsIgnoreCase(destino.getContenido())) {
-//                    System.out.println("destino existe en destinos");
-                    if (nuevo.getTiempo() < rutas.get(i).getTiempo()) {
-//                        System.out.println("si es menor");
-                        rutas.remove(i);
-                        rutas.add(nuevo);
-                        bandera = true;
+
+                }
+            }
+        }
+//        System.out.println("Matriz distancia 2 --------------------------------");
+//        for (int i = 0; i < tamaño; i++) {
+//            for (int j = 0; j < tamaño; j++) {
+//                System.out.print("(" + distancias[i][j] + ") ");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println("Matriz Ruta 2 --------------------------------");
+//        for (int i = 0; i < tamaño; i++) {
+//            for (int j = 0; j < tamaño; j++) {
+//                System.out.print("(" + recorridos[i][j] + ") ");
+//            }
+//            System.out.println();
+//        }
+
+    }
+
+    public String buscarRuta(String origen_, String destino_) {
+        llenarRutas();
+        String rutaCompleta = "";
+        int tamaño = calcularTamaño();
+        int iDestino = -1, iOrigen = -1;
+        for (int i = 1; i < tamaño; i++) {
+            if (recorridos[0][i].equalsIgnoreCase(destino_)) {
+                iDestino = i;
+            }
+            if (recorridos[i][0].equalsIgnoreCase(origen_)) {
+                iOrigen = i;
+            }
+        }
+
+        if (iOrigen != -1 && iDestino != -1) {
+            while (!origen_.equalsIgnoreCase("-")) {
+                for (int i = 0; i < tamaño; i++) {
+                    if (recorridos[i][0].equalsIgnoreCase(origen_)) {
+                        origen_ = recorridos[i][iDestino];
+//                        System.out.print(recorridos[i][0] + " -> ");
+                        rutaCompleta += recorridos[i][0] + " -> ";
                         break;
                     }
                 }
             }
-            if (!bandera) {
-                rutas.add(nuevo);
+//            System.out.println("Tiempo: " + distancias[iOrigen][iDestino]);
+            rutaCompleta += "Tiempo: " + distancias[iOrigen][iDestino];
+        } else {
+            if (iOrigen == -1) {
+//                System.out.println("Origen no Existe");
+                return "Origen no Existe";
+            } else {
+//                System.out.println("Destino no Existe");
+                return "Destino no Existe";
             }
         }
-
-    }
-
-    public void mostrarRutas() {
-        System.out.println("---------------- Rutas ----------------");
-        if (!rutas.isEmpty()) {
-            for (int i = 0; i < rutas.size(); i++) {
-                System.out.println(rutas.get(i).getTiempo() + " " + rutas.get(i).getOrigen() + " " + rutas.get(i).getDestino());
-            }
-        }
-    }
-
-    public void conseguirRuta(String origen_, String destino_) {
-        rutas.clear();
-        nodoRutas origen = inicio, copiaOrigen = inicio;
-        while (origen != null) {
-            if (origen.getContenido().equalsIgnoreCase(origen_)) {
-//                System.out.println("encontro origen");
-                copiaOrigen = origen;
-                break;
-            }
-            origen = origen.abajo;
-        }
-        while (origen != null) {
-//            System.out.println("origen para abajo");
-            nodoRutas destinos = origen.derecha;
-            while (destinos != null) {
-                revisarRutas(origen, destinos);
-                destinos = destinos.derecha;
-            }
-            origen = origen.abajo;
-        }
-        origen = inicio;
-        while (origen != null && origen != copiaOrigen) {
-//            System.out.println("hasta origen");
-            nodoRutas destinos = origen.derecha;
-            while (destinos != null) {
-                revisarRutas(origen, destinos);
-                destinos = destinos.derecha;
-            }
-            origen = origen.abajo;
-        }
-        System.out.println("De: " + origen_ + " Hacia: " + destino_);
-        leerRuta(origen_, destino_);
-        tiempoRuta(destino_);
-
-    }
-
-    void leerRuta(String origen_, String destino_) {
-        if (!origen_.equalsIgnoreCase(destino_)) {
-            for (int i = 0; i < rutas.size(); i++) {
-                if (rutas.get(i).getDestino().equalsIgnoreCase(destino_)) {
-                    System.out.println(rutas.get(i).getDestino() + " <- " + rutas.get(i).getOrigen());
-                    destino_ = rutas.get(i).getOrigen();
-                    leerRuta(origen_, destino_);
-                    break;
-                }
-            }
-        }
-    }
-
-    void tiempoRuta(String destino_) {
-        for (int i = 0; i < rutas.size(); i++) {
-            if (rutas.get(i).getDestino().equalsIgnoreCase(destino_)) {
-                System.out.println("Tiempo: " + rutas.get(i).getTiempo());
-                break;
-            }
-        }
+        return rutaCompleta;
     }
 
 }
