@@ -131,6 +131,7 @@ public class listaRutas {
 
             }
             graficar();
+            llenarRutas();
 
         }
     }
@@ -276,7 +277,6 @@ public class listaRutas {
     }
 
     public String buscarRuta(String origen_, String destino_) {
-        llenarRutas();
         String rutaCompleta = "";
         int tamaño = calcularTamaño();
         int iDestino = -1, iOrigen = -1;

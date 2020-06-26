@@ -11,9 +11,9 @@ public class EDD_Proyecto2 {
 //        String y = "Infinity";
 //        Ejemplo de Rutas
 //
-//        listaRutas p = new listaRutas();
-//        p.cargaMasiva();
-//        System.out.println(p.buscarRuta("valencia", "madrid"));
+        listaRutas p = new listaRutas();
+        p.cargaMasiva();
+        System.out.println(p.buscarRuta("valencia", "madrid"));
 
     }
 
