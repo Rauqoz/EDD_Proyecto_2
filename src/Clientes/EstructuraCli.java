@@ -5,6 +5,7 @@
  */
 package Clientes;
 
+import BlockChain.formViajes;
 import Conductores.*;
 import java.awt.Image;
 import java.io.File;
@@ -15,6 +16,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import static edd_proyecto2.EDD_Proyecto2.*;
+import java.awt.Desktop;
 
 /**
  *
@@ -55,7 +57,7 @@ public class EstructuraCli extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel1.setText("Mostrar lista de conductores ");
+        jLabel1.setText("Mostrar lista de clientes ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,7 +71,7 @@ public class EstructuraCli extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(310, 310, 310)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Limagen, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -90,18 +92,15 @@ public class EstructuraCli extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-      
-        try {
-            tablita.GenerarGrafico();
-            File miDir = new File(".");
-            String ruta;
-            ruta = miDir.getCanonicalPath() + "\\"+"Tablahash"+ ".png";
-            ImageIcon fot = new ImageIcon(ruta);
-            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(Limagen.getWidth(), Limagen.getHeight(), Image.SCALE_AREA_AVERAGING));
-            Limagen.setIcon(icono);
-            this.repaint();
-        } catch (IOException ex) {
-            Logger.getLogger(EstructuraCli.class.getName()).log(Level.SEVERE, null, ex);
+        tablita.GenerarGrafico();
+        File imagen = new File("Tablahash.png");
+        if (imagen.exists()) {
+            Desktop abrir = Desktop.getDesktop();
+            try {
+                abrir.open(imagen);
+            } catch (IOException ex) {
+                Logger.getLogger(formViajes.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

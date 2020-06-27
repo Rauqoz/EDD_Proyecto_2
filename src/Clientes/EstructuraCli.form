@@ -32,7 +32,7 @@
                       <Component id="jButton1" min="-2" pref="138" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="266" max="32767" attributes="0"/>
+              <EmptySpace pref="313" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -77,7 +77,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Black" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Mostrar lista de conductores "/>
+        <Property name="text" type="java.lang.String" value="Mostrar lista de clientes "/>
       </Properties>
     </Component>
   </SubComponents>

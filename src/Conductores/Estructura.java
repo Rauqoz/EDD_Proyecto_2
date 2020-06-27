@@ -5,6 +5,7 @@
  */
 package Conductores;
 
+import BlockChain.formViajes;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import static edd_proyecto2.EDD_Proyecto2.*;
+import java.awt.Desktop;
 
 /**
  *
@@ -24,11 +26,9 @@ public class Estructura extends javax.swing.JPanel {
     /**
      * Creates new form Estructura
      */
-
     public Estructura() {
         initComponents();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,18 +90,15 @@ public class Estructura extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-      
-        try {
-            lista.GenerarGraphyz();
-            File miDir = new File(".");
-            String ruta;
-            ruta = miDir.getCanonicalPath() + "\\"+"conductores"+ ".png";
-            ImageIcon fot = new ImageIcon(ruta);
-            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(Limagen.getWidth(), Limagen.getHeight(), Image.SCALE_DEFAULT));
-            Limagen.setIcon(icono);
-            this.repaint();
-        } catch (IOException ex) {
-            Logger.getLogger(Estructura.class.getName()).log(Level.SEVERE, null, ex);
+        lista.GenerarGraphyz();
+        File imagen = new File("conductores.png");
+        if (imagen.exists()) {
+            Desktop abrir = Desktop.getDesktop();
+            try {
+                abrir.open(imagen);
+            } catch (IOException ex) {
+                Logger.getLogger(formViajes.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
