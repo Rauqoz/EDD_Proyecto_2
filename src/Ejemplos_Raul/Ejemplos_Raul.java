@@ -16,7 +16,8 @@ public class Ejemplos_Raul {
 
     public static listaRutas ListaRutas = new listaRutas();
     public static listaBlock ListaBlockChain = new listaBlock();
-
+//formViajes menu = new formViajes();
+//        menu.setVisible(true);
     //        String y = "Infinity";
 //        Ejemplo de Rutas
 //
