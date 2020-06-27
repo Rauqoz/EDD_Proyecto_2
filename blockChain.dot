@@ -1,0 +1,2 @@
+digraph G { 
+node [style=circle, color = blue];"28fba9e67ccd83f95f77e2a46a49d14a bilbao gerona 26:06:2020 23:46" ->"28fba9e67ccd83f95f77e2a46a49d14a madrid albacete 26:06:2020 23:46"; label = "BlockChain";} 

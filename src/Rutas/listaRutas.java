@@ -188,7 +188,7 @@ public class listaRutas {
             tamaño++;
             tempo = tempo.abajo;
         }
-        return tamaño;
+        return tamaño + 1;
     }
 
     void llenarRutas() {
@@ -196,7 +196,7 @@ public class listaRutas {
         distancias = new String[tamaño][tamaño];
         recorridos = new String[tamaño][tamaño];
         nodoRutas temporal = inicio;
-        int marca = 0;
+        int marca = 1;
         while (temporal != null) {
             distancias[0][marca] = temporal.getContenido();
             distancias[marca][0] = temporal.getContenido();
@@ -266,6 +266,7 @@ public class listaRutas {
 //            }
 //            System.out.println();
 //        }
+//        mostrarOrigenes(inicio);
 //        System.out.println("Matriz Ruta 2 --------------------------------");
 //        for (int i = 0; i < tamaño; i++) {
 //            for (int j = 0; j < tamaño; j++) {
@@ -276,8 +277,8 @@ public class listaRutas {
 
     }
 
-    public String buscarRuta(String origen_, String destino_) {
-        String rutaCompleta = "";
+    public nodoParaRuta buscarRuta(String origen_, String destino_) {
+        listaParaLaRuta rutaActual = new listaParaLaRuta();
         int tamaño = calcularTamaño();
         int iDestino = -1, iOrigen = -1;
         for (int i = 1; i < tamaño; i++) {
@@ -288,30 +289,33 @@ public class listaRutas {
                 iOrigen = i;
             }
         }
-
+//        System.out.println("destino: " + iDestino + " origen: " + iOrigen);
         if (iOrigen != -1 && iDestino != -1) {
             while (!origen_.equalsIgnoreCase("-")) {
                 for (int i = 0; i < tamaño; i++) {
                     if (recorridos[i][0].equalsIgnoreCase(origen_)) {
                         origen_ = recorridos[i][iDestino];
 //                        System.out.print(recorridos[i][0] + " -> ");
-                        rutaCompleta += recorridos[i][0] + " -> ";
+                        rutaActual.insertar(recorridos[i][0], distancias[i][iDestino]);
                         break;
                     }
                 }
             }
 //            System.out.println("Tiempo: " + distancias[iOrigen][iDestino]);
-            rutaCompleta += "Tiempo: " + distancias[iOrigen][iDestino];
         } else {
             if (iOrigen == -1) {
-//                System.out.println("Origen no Existe");
-                return "Origen no Existe";
+                System.out.println("Origen no Existe");
+                return null;
             } else {
-//                System.out.println("Destino no Existe");
-                return "Destino no Existe";
+                System.out.println("Destino no Existe");
+                return null;
             }
         }
-        return rutaCompleta;
+//        rutaActual.mostrarParaRuta(rutaActual.inicioRuta);
+        if (rutaActual.inicioRuta != null) {
+            rutaActual.graficar();
+        }
+        return rutaActual.inicioRuta;
     }
 
 }

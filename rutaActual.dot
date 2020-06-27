@@ -1,0 +1,2 @@
+digraph G { 
+node [style=circle, color = blue];"Madrid 251" ->"Albacete 0"; label = "Ruta Actual";} 
