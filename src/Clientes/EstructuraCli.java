@@ -68,11 +68,12 @@ public class EstructuraCli extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(310, 310, 310)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(Limagen, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)))
-                .addGap(54, 54, 54))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(266, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Limagen, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,8 +83,8 @@ public class EstructuraCli extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(Limagen, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addComponent(Limagen, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -96,7 +97,7 @@ public class EstructuraCli extends javax.swing.JPanel {
             String ruta;
             ruta = miDir.getCanonicalPath() + "\\"+"Tablahash"+ ".png";
             ImageIcon fot = new ImageIcon(ruta);
-            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(Limagen.getWidth(), Limagen.getHeight(), Image.SCALE_DEFAULT));
+            Icon icono = new ImageIcon(fot.getImage().getScaledInstance(Limagen.getWidth(), Limagen.getHeight(), Image.SCALE_AREA_AVERAGING));
             Limagen.setIcon(icono);
             this.repaint();
         } catch (IOException ex) {
