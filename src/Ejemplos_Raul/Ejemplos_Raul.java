@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ejemplos_Raul;
 
 import BlockChain.listaBlock;
@@ -16,18 +11,20 @@ public class Ejemplos_Raul {
 
     public static listaRutas ListaRutas = new listaRutas();
     public static listaBlock ListaBlockChain = new listaBlock();
-//formViajes menu = new formViajes();
+// TODO code application logic here
+//        ListaRutas.cargaMasiva();
+//        formViajes menu = new formViajes();
 //        menu.setVisible(true);
-    //        String y = "Infinity";
-//        Ejemplo de Rutas
+//        // TODO code application logic here
+//        /* para mandar a llamar a la tabla hash que es la variablke tablita 
+//        NodoH encontrado=tablita.Busqueda("aqui mandas el dpi del cliente ");   }
+//        para conductore es asi:
+//        NodoC encontado= lista.Buscar("aqui pones el dpi del conductor a buscar");
+//        de alli ya buscar el get que queras 
+//         */
 //
-//        listaRutas p = new listaRutas();
-//        p.cargaMasiva();
-//        //Buscar ruta retorna un nodo tipo nodoParaRuta 
-//        //que es una lista simple con la ruta que debe seguir
-//
-//        p.buscarRuta("oviedo", "barcelona");
-//        listaBlock p = new listaBlock();
-//        p.insertarViaje("bilbao", "gerona");
-//        p.insertarViaje("madrid", "albacete");
+//        MenuCli clientes = new MenuCli();
+//        clientes.setVisible(true);
+//        MenuC conductores = new MenuC();
+//        conductores.setVisible(true);
 }

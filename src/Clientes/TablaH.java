@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigInteger;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -42,7 +43,7 @@ public class TablaH {
     public void Insertar(Cliente dato) {
         NodoH nuevo = new NodoH(dato);
         NodoH aux, aux1 = null;
-        int veri=GenerarLLave(dato.getDpi()).intValue();
+        int veri = GenerarLLave(dato.getDpi()).intValue();
         float por = Porcentaje();
         if (por < 0.75) {
             if (tabla[GenerarLLave(dato.getDpi()).intValue()] == null) {
@@ -95,6 +96,32 @@ public class TablaH {
                     System.out.println(aux.getDato().getDpi());
                 } else {
                     System.out.println("Null");
+                }
+            }
+        }
+    }
+
+    public void cargarCombobox(JComboBox comboBox) {
+        NodoH aux = null;
+        String nu = "";
+        for (int i = 0; i < tabla.length; i++) {
+            nu = "";
+            aux = tabla[i];
+            if (aux != null && aux.derecha != null) {
+                comboBox.addItem(aux.getDato().getDpi());
+                nu = nu + aux.getDato().getDpi();
+                aux = aux.getDerecha();
+                while (aux != null) {
+                    comboBox.addItem(aux.getDato().getDpi());
+                    nu = nu + "->" + aux.getDato().getDpi();
+                    aux = aux.getDerecha();
+                }
+//                System.out.println(nu);
+            } else {
+                if (aux != null) {
+//                    System.out.println(aux.getDato().getDpi());
+                } else {
+//                    System.out.println("Null");
                 }
             }
         }
@@ -237,7 +264,7 @@ public class TablaH {
     }
 
     public boolean Modificicar(String d, Cliente mo) {
-        
+
         if (Eliminar(d)) {
             Insertar(mo);
             return true;

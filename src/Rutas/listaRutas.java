@@ -1,5 +1,6 @@
 package Rutas;
 
+import MenuPrincipal.MenuPrincipal;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -29,14 +31,16 @@ public class listaRutas {
         } else {
 
             if (existeOrigen(origen_, inicio) && temporalOrigen != null) {
-                if (existeDestino(destino_, temporalOrigen)) {
-
-                } else {
+                if (!existeDestino(destino_, temporalOrigen)) {
                     insertarDestinos(destino_, tiempo, temporalOrigen);
                 }
             } else {
                 nodoRutas tempo = insertarOrigenes(origen_, inicio);
                 insertarDestinos(destino_, tiempo, tempo);
+            }
+
+            if (!existeOrigen(destino_, inicio) && temporalOrigen == null) {
+                insertarOrigenes(destino_, inicio);
             }
 
         }
@@ -93,7 +97,7 @@ public class listaRutas {
         return nuevo;
     }
 
-    void mostrarOrigenes(nodoRutas tempo_) {
+    public void mostrarOrigenes(nodoRutas tempo_) {
         if (tempo_ != null) {
             System.out.print(tempo_.contenido);
             mostrarDestinos(tempo_.derecha);
@@ -109,6 +113,15 @@ public class listaRutas {
         } else {
             System.out.println();
         }
+    }
+
+    public void cargarOrigenesCombobox(nodoRutas tempo_, JComboBox comboBox) {
+        if (tempo_ != null) {
+//            System.out.print(tempo_.contenido);
+            comboBox.addItem(tempo_.contenido);
+            cargarOrigenesCombobox(tempo_.abajo, comboBox);
+        }
+
     }
 
     public void cargaMasiva() {
@@ -132,6 +145,8 @@ public class listaRutas {
             }
             graficar();
             llenarRutas();
+            MenuPrincipal menuPrincipal = new MenuPrincipal();
+            menuPrincipal.setVisible(true);
 
         }
     }

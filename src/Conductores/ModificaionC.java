@@ -7,6 +7,7 @@ package Conductores;
 
 import javax.swing.JOptionPane;
 import static edd_proyecto2.EDD_Proyecto2.*;
+
 /**
  *
  * @author josed
@@ -14,14 +15,14 @@ import static edd_proyecto2.EDD_Proyecto2.*;
 public class ModificaionC extends javax.swing.JPanel {
 
     String tempdpi;
+
     /**
      * Creates new form ModificaionC
      */
     public ModificaionC() {
         initComponents();
-        tempdpi="";
+        tempdpi = "";
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -190,7 +191,7 @@ public class ModificaionC extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         if (!dpi.getText().equals("") && !nombre.getText().equals("") && !apellido.getText().equals("") && !tplicencia.getText().equals("")) {
-            lista.ModificarD(tempdpi,new Conductor(dpi.getText(), nombre.getText(), apellido.getText(), tplicencia.getText(), genero.getText(), fecnacimiento.getText(), telefono.getText(), direccion.getText()));
+            lista.ModificarD(tempdpi, new Conductor(dpi.getText(), nombre.getText(), apellido.getText(), tplicencia.getText(), genero.getText(), fecnacimiento.getText(), telefono.getText(), direccion.getText()));
             lista.ordenarListaMenorM();
             JOptionPane.showMessageDialog(null, "Modificacion Exitosa!!!");
             limpiar();
@@ -202,15 +203,16 @@ public class ModificaionC extends javax.swing.JPanel {
     private void dpiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dpiKeyTyped
         // TODO add your handling code here:
         char car = evt.getKeyChar();
-        if ((car < '0' || car > '9') && (car < ',' || car > '.'))
-        evt.consume();
+        if ((car < '0' || car > '9') && (car < ',' || car > '.')) {
+            evt.consume();
+        }
     }//GEN-LAST:event_dpiKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //int tre=lista.getTam();
         //System.out.println(tre);
-        NodoC nuevo=lista.Buscar(dpi.getText());
+        NodoC nuevo = lista.Buscar(dpi.getText());
         if (nuevo != null) {
             dpi.setText(nuevo.getDato().getDpi());
             nombre.setText(nuevo.getDato().getNombre());
@@ -220,13 +222,13 @@ public class ModificaionC extends javax.swing.JPanel {
             fecnacimiento.setText(nuevo.getDato().getFnac());
             telefono.setText(nuevo.getDato().getTelefono());
             direccion.setText(nuevo.getDato().getDireccion());
-            tempdpi=nuevo.getDato().getDpi();
+            tempdpi = nuevo.getDato().getDpi();
 
         } else {
             JOptionPane.showMessageDialog(null, "Conductor no encontrado!!!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
- public void limpiar() {
+    public void limpiar() {
         dpi.setText("");
         nombre.setText("");
         apellido.setText("");

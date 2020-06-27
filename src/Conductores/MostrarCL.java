@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Conductores;
+
 import static edd_proyecto2.EDD_Proyecto2.*;
 import javax.swing.JOptionPane;
 
@@ -16,12 +17,9 @@ public class MostrarCL extends javax.swing.JPanel {
     /**
      * Creates new form MostrarCL
      */
-
     public MostrarCL() {
         initComponents();
     }
-
- 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,15 +101,16 @@ public class MostrarCL extends javax.swing.JPanel {
     private void dpiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dpiKeyTyped
         // TODO add your handling code here:
         char car = evt.getKeyChar();
-        if ((car < '0' || car > '9') && (car < ',' || car > '.'))
+        if ((car < '0' || car > '9') && (car < ',' || car > '.')) {
             evt.consume();
+        }
     }//GEN-LAST:event_dpiKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         NodoC nuevo = lista.Buscar(dpi.getText());
         if (nuevo != null) {
-            mostrar.setText("Dpi: "+nuevo.getDato().getDpi()+"; Nombre:"+nuevo.getDato().getNombre()+" "+nuevo.getDato().getAppelido()+"; tipo de licencia: "+nuevo.getDato().getTdeL()+"; Telefono: "+nuevo.getDato().getTelefono());
+            mostrar.setText("Dpi: " + nuevo.getDato().getDpi() + "; Nombre:" + nuevo.getDato().getNombre() + " " + nuevo.getDato().getAppelido() + "; tipo de licencia: " + nuevo.getDato().getTdeL() + "; Telefono: " + nuevo.getDato().getTelefono());
         } else {
             JOptionPane.showMessageDialog(null, "Conductor no encontrado!!!");
         }

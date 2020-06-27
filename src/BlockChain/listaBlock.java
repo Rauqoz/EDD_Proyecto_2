@@ -21,8 +21,10 @@ public class listaBlock {
         this.inicio = null;
     }
 
-    public void insertarViaje(String origen_, String destino_) {
+    public void insertarViaje(String origen_, String destino_, String cliente, String conductor) {
         nodoBlock nuevo = new nodoBlock(origen_, destino_);
+        nuevo.cliente = tablita.Busqueda(cliente);
+        nuevo.conductor = lista.Buscar(conductor);
         String fechaHoraNodo = generarFechaHoraNodo();
         String fechaHoraLlave = generarFechaHoraLlave();
         nuevo.fechaHora = fechaHoraNodo;
@@ -97,7 +99,7 @@ public class listaBlock {
         if (tempo_ != null) {
 
             try {
-                archivo.write("\"" + tempo_.llave + " " + tempo_.lugarOrigen + " " + tempo_.lugarDestino + " " + tempo_.fechaHora + "\"");
+                archivo.write("\"" + tempo_.llave + " " + tempo_.lugarOrigen + " " + tempo_.lugarDestino + " " + tempo_.fechaHora + " Cliente: " + tempo_.cliente.getDato().getNombre() + " Conductor: " + tempo_.conductor.getDato().getNombre() + "\"");
             } catch (IOException ex) {
                 Logger.getLogger(listaRutas.class.getName()).log(Level.SEVERE, null, ex);
             }

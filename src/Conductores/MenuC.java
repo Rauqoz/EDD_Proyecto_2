@@ -4,29 +4,35 @@
  * and open the template in the editor.
  */
 package Conductores;
+
+import MenuPrincipal.MenuPrincipal;
 import static edd_proyecto2.EDD_Proyecto2.*;
+
 /**
  *
  * @author josed
  */
 public class MenuC extends javax.swing.JFrame {
- Cmasiva cmasiva;
- AgregarC cargac;
- ModificaionC modi;
- EliminarC eliminar;
- MostrarCL mostrar;
- Estructura graphyz;
+
+    Cmasiva cmasiva;
+    AgregarC cargac;
+    ModificaionC modi;
+    EliminarC eliminar;
+    MostrarCL mostrar;
+    Estructura graphyz;
+
     /**
      * Creates new form MenuC
      */
     public MenuC() {
-        modi=new ModificaionC();
-        cmasiva=new Cmasiva();
-        cargac =new AgregarC();
-        eliminar=new EliminarC();
-        mostrar=new MostrarCL();
-        graphyz=new Estructura();
+        modi = new ModificaionC();
+        cmasiva = new Cmasiva();
+        cargac = new AgregarC();
+        eliminar = new EliminarC();
+        mostrar = new MostrarCL();
+        graphyz = new Estructura();
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -55,6 +61,11 @@ public class MenuC extends javax.swing.JFrame {
 
         Btnatras.setBackground(new java.awt.Color(153, 153, 153));
         Btnatras.setText("Atras");
+        Btnatras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnatrasActionPerformed(evt);
+            }
+        });
 
         BTNcarga.setBackground(new java.awt.Color(153, 153, 153));
         BTNcarga.setText("Carga masiva");
@@ -177,112 +188,84 @@ public class MenuC extends javax.swing.JFrame {
 
     private void BTNcargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcargaActionPerformed
         // TODO add your handling code here:
-        
-       Opciones.add(cmasiva);
-       cmasiva.setVisible(true);
-       cargac.setVisible(false);
-       modi.setVisible(false);
-       eliminar.setVisible(false);
-       mostrar.setVisible(false);
-       graphyz.setVisible(false);
-       Opciones.validate();
-      
+
+        Opciones.add(cmasiva);
+        cmasiva.setVisible(true);
+        cargac.setVisible(false);
+        modi.setVisible(false);
+        eliminar.setVisible(false);
+        mostrar.setVisible(false);
+        graphyz.setVisible(false);
+        Opciones.validate();
+
     }//GEN-LAST:event_BTNcargaActionPerformed
 
     private void BtnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnagregarActionPerformed
         // TODO add your handling code here:
-         Opciones.add(cargac);
-       cargac.setVisible(true);
-       cmasiva.setVisible(false);
-       modi.setVisible(false);
-       eliminar.setVisible(false);
-       mostrar.setVisible(false);
-       graphyz.setVisible(false);
-       Opciones.validate();
+        Opciones.add(cargac);
+        cargac.setVisible(true);
+        cmasiva.setVisible(false);
+        modi.setVisible(false);
+        eliminar.setVisible(false);
+        mostrar.setVisible(false);
+        graphyz.setVisible(false);
+        Opciones.validate();
     }//GEN-LAST:event_BtnagregarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-           Opciones.add(modi);
-       cargac.setVisible(false);
-       cmasiva.setVisible(false);
-       modi.setVisible(true);
-       eliminar.setVisible(false);
-       mostrar.setVisible(false);
-       graphyz.setVisible(false);
-       Opciones.validate();
+        Opciones.add(modi);
+        cargac.setVisible(false);
+        cmasiva.setVisible(false);
+        modi.setVisible(true);
+        eliminar.setVisible(false);
+        mostrar.setVisible(false);
+        graphyz.setVisible(false);
+        Opciones.validate();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void BTNeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNeliminarActionPerformed
         // TODO add your handling code here:
         Opciones.add(eliminar);
-       cargac.setVisible(false);
-       cmasiva.setVisible(false);
-       modi.setVisible(false);
-       eliminar.setVisible(true);
-       mostrar.setVisible(false);
-       graphyz.setVisible(false);
-       Opciones.validate();
+        cargac.setVisible(false);
+        cmasiva.setVisible(false);
+        modi.setVisible(false);
+        eliminar.setVisible(true);
+        mostrar.setVisible(false);
+        graphyz.setVisible(false);
+        Opciones.validate();
     }//GEN-LAST:event_BTNeliminarActionPerformed
 
     private void BTNcllaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcllaveActionPerformed
         // TODO add your handling code here:
         Opciones.add(mostrar);
-       cargac.setVisible(false);
-       cmasiva.setVisible(false);
-       modi.setVisible(false);
-       eliminar.setVisible(false);
-       mostrar.setVisible(true);
-       graphyz.setVisible(false);
-       Opciones.validate();
+        cargac.setVisible(false);
+        cmasiva.setVisible(false);
+        modi.setVisible(false);
+        eliminar.setVisible(false);
+        mostrar.setVisible(true);
+        graphyz.setVisible(false);
+        Opciones.validate();
     }//GEN-LAST:event_BTNcllaveActionPerformed
 
     private void BTNestructuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNestructuraActionPerformed
         // TODO add your handling code here:
-         Opciones.add(graphyz);
-       cargac.setVisible(false);
-       cmasiva.setVisible(false);
-       modi.setVisible(false);
-       eliminar.setVisible(false);
-       mostrar.setVisible(false);
-       graphyz.setVisible(true);
-       Opciones.validate();
+        Opciones.add(graphyz);
+        cargac.setVisible(false);
+        cmasiva.setVisible(false);
+        modi.setVisible(false);
+        eliminar.setVisible(false);
+        mostrar.setVisible(false);
+        graphyz.setVisible(true);
+        Opciones.validate();
     }//GEN-LAST:event_BTNestructuraActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuC.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuC.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuC.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuC.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuC().setVisible(true);
-            }
-        });
-    }
+    private void BtnatrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnatrasActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+    }//GEN-LAST:event_BtnatrasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNcarga;

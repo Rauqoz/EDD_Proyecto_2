@@ -1,5 +1,7 @@
 package BlockChain;
 
+import Clientes.NodoH;
+import Conductores.NodoC;
 import Rutas.nodoParaRuta;
 
 public class nodoBlock {
@@ -10,11 +12,29 @@ public class nodoBlock {
     String lugarDestino;
     String fechaHora;
     nodoParaRuta ruta;
+    NodoH cliente;
+    NodoC conductor;
 
     public nodoBlock(String lugarOrigen, String lugarDestino) {
         this.lugarOrigen = lugarOrigen;
         this.lugarDestino = lugarDestino;
         this.derecha = null;
+    }
+
+    public NodoH getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(NodoH cliente) {
+        this.cliente = cliente;
+    }
+
+    public NodoC getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(NodoC conductor) {
+        this.conductor = conductor;
     }
 
     public String getLlave() {

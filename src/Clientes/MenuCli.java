@@ -6,6 +6,7 @@
 package Clientes;
 
 import Clientes.*;
+import MenuPrincipal.MenuPrincipal;
 
 /**
  *
@@ -25,6 +26,7 @@ public class MenuCli extends javax.swing.JFrame {
 
     public MenuCli() {
         initComponents();
+        setLocationRelativeTo(null);
         carga = new Climasiva();
         registro = new AgregarCli();
         modificar = new ModificaionCli();
@@ -59,6 +61,11 @@ public class MenuCli extends javax.swing.JFrame {
 
         Btnatras.setBackground(new java.awt.Color(153, 153, 153));
         Btnatras.setText("Atras");
+        Btnatras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnatrasActionPerformed(evt);
+            }
+        });
 
         BTNcarga.setBackground(new java.awt.Color(153, 153, 153));
         BTNcarga.setText("Carga masiva");
@@ -110,7 +117,7 @@ public class MenuCli extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel1.setText("Menu Clinetes");
+        jLabel1.setText("Menu Clientes");
 
         javax.swing.GroupLayout botonesLayout = new javax.swing.GroupLayout(botones);
         botones.setLayout(botonesLayout);
@@ -256,41 +263,13 @@ public class MenuCli extends javax.swing.JFrame {
         Opciones.validate();
     }//GEN-LAST:event_BTNestructuraActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuCli.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuCli.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuCli.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuCli.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void BtnatrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnatrasActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+    }//GEN-LAST:event_BtnatrasActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuCli().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNcarga;

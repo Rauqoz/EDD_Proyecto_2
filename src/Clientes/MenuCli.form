@@ -111,6 +111,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Atras"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnatrasActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BTNcarga">
           <Properties>
@@ -184,7 +187,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Menu Clinetes"/>
+            <Property name="text" type="java.lang.String" value="Menu Clientes"/>
           </Properties>
         </Component>
       </SubComponents>
