@@ -16,7 +16,7 @@ public class EDD_Proyecto2 {
         NodoC encontado= lista.Buscar("aqui pones el dpi del conductor a buscar");
         de alli ya buscar el get que queras 
         */
-       
+      //dfdfdf
         MenuCli nuevo= new MenuCli();
         nuevo.setVisible(true);
        /* MenuC nuevo=new MenuC();
