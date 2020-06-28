@@ -46,12 +46,6 @@ public class vMostrarCL extends javax.swing.JPanel {
 
         lbb.setText("PLACA");
 
-        dpi.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                dpiKeyTyped(evt);
-            }
-        });
-
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setText("Buscar Placa");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -100,13 +94,6 @@ public class vMostrarCL extends javax.swing.JPanel {
                 .addContainerGap(175, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dpiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dpiKeyTyped
-        // TODO add your handling code here:
-        char car = evt.getKeyChar();
-        if ((car < '0' || car > '9') && (car < ',' || car > '.'))
-            evt.consume();
-    }//GEN-LAST:event_dpiKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
