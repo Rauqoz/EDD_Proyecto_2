@@ -2,11 +2,13 @@
 package edd_proyecto2;
 import Clientes.*;
 import Conductores.*;
+import Veiculo.*;
 
 public class EDD_Proyecto2 {
 
     public static TablaH tablita=new TablaH();
     public static ListaC lista=new ListaC();
+    public static ArbolB t=new ArbolB(3);
 
     public static void main(String[] args) {
         // TODO code application logic here
@@ -17,7 +19,7 @@ public class EDD_Proyecto2 {
         de alli ya buscar el get que queras 
         */
       //dfdfdf
-        MenuCli nuevo= new MenuCli();
+        MenuV nuevo= new MenuV();
         nuevo.setVisible(true);
        /* MenuC nuevo=new MenuC();
         nuevo.setVisible(true);*/

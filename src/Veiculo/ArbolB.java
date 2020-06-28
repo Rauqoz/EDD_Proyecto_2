@@ -28,28 +28,29 @@ public class ArbolB {
         ListaN nu = new ListaN();
 
         if (raiz != null) {
-            System.out.println(raiz.Gcodigo(0));
-            raiz.Vector(0, nu);
-            nu.getTama();
-            nu.Imprimir();
-            ListaN craiz = new ListaN();
-            int cont = 0;
-            while (cont < nu.getTama()) {
-                craiz.Add(nu.Recorriodo(cont).getDato());
-                cont++;
-            }
-            String n = "";
-            String ya = raiz.Gcodigo(0) + nu.CodigoC(0, n);
-            while (nu.getRoot() != null) {
-                ya = ya + nu.CodigoC(0, n);
-            }
-            ya = ya + craiz.CodigoC2(0, n);
-            System.out.println(ya);
             try {
+                System.out.println(raiz.Gcodigo(0));
+                raiz.Vector(0, nu);
+                nu.getTama();
+                nu.Imprimir();
+                ListaN craiz = new ListaN();
+                int cont = 0;
+                while (cont < nu.getTama()) {
+                    craiz.Add(nu.Recorriodo(cont).getDato());
+                    cont++;
+                }
+                String n = "";
+                String ya = raiz.Gcodigo(0) + nu.CodigoC(0, n);
+                while (nu.getRoot() != null) {
+                    ya = ya + nu.CodigoC(0, n);
+                }
+                ya = ya + craiz.CodigoC2(0, n);
+                System.out.println(ya);
+
                 //escribir dot
                 FileWriter codigo = new FileWriter("ArbolB" + ".dot");
                 PrintWriter documento = new PrintWriter(codigo);
-                documento.println("digraph G {\n graph [ dpi = 300 ];\n ");
+                documento.println("digraph G {\n  ");
                 documento.println("node[shape=record,color=\"red\"]; \n");
                 documento.println("\t\t//Arbol B \n");
                 documento.println(ya);
@@ -78,6 +79,13 @@ public class ArbolB {
         if (raiz != null) {
             raiz.Imprimir();
         }
+    }
+
+    public String Datos() {
+        if (raiz != null) {
+            return raiz.Texto();
+        }
+        return "";
     }
 
     public Carro BusquedaB(String n) {
@@ -145,7 +153,8 @@ public class ArbolB {
         }
         return valor;
     }
-    public boolean Modificar(String n, Carro s){
+
+    public boolean Modificar(String n, Carro s) {
         if (EliminarB(n)) {
             InsertarB(s);
             return true;

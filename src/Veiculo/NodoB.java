@@ -94,6 +94,22 @@ public class NodoB {
         }
         System.out.println(imp);
     }
+     public String Texto() {
+        String imp = "";
+        int aux = 0;
+        int i;
+        for (i = 0; i < nA; i++) {
+            if (hoja == false) {
+                imp = imp +segun[i].Texto();
+            }
+            imp = imp +"Placa: "+ LLave[i].getPlasca() + "; Marca: "+LLave[i].getMarca()+"; Modelo: "+LLave[i].getModelo()+"; Año: "+LLave[i].getAno()+"; Color: "+LLave[i].getColor()+"; precio: "+LLave[i].getPrecio()+"; transmision: "+LLave[i].getTransmision()+"\n";
+            //System.out.print(aux+" ");
+        }
+        if (hoja == false) {
+            imp = imp +segun[i].Texto();
+        }
+        return imp;
+    }
 
     public Carro Buscar(String s) {
         int n=ValuString(s);
