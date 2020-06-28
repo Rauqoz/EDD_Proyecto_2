@@ -23,6 +23,7 @@ public class EDD_Proyecto2 {
         de alli ya buscar el get que queras 
          */
         ListaRutas.cargaMasiva();
+
         //dfdfdf
         /* MenuC nuevo=new MenuC();
         nuevo.setVisible(true);*/
