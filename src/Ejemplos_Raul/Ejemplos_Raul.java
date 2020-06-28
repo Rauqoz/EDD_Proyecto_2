@@ -1,6 +1,8 @@
 package Ejemplos_Raul;
 
 import BlockChain.listaBlock;
+import Clientes.TablaH;
+import Conductores.ListaC;
 import Rutas.listaRutas;
 
 /**
@@ -9,8 +11,10 @@ import Rutas.listaRutas;
  */
 public class Ejemplos_Raul {
 
+    public static TablaH tablita = new TablaH();
+    public static ListaC lista = new ListaC();
     public static listaRutas ListaRutas = new listaRutas();
-    public static listaBlock ListaBlockChain = new listaBlock();
+    public static listaBlock ListaViajes = new listaBlock();
 // TODO code application logic here
 //        ListaRutas.cargaMasiva();
 //        formViajes menu = new formViajes();
