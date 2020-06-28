@@ -1,12 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Ejemplo_jose;
 
-package edd_proyecto2;
 import Clientes.*;
 import Conductores.*;
 import Veiculo.*;
 
-public class EDD_Proyecto2 {
-
-    public static TablaH tablita=new TablaH();
+/**
+ *
+ * @author josed
+ */
+public class Ejemplo {
+    
+/*
+       public static TablaH tablita=new TablaH();
     public static ListaC lista=new ListaC();
     public static ArbolB t=new ArbolB(3);
 
@@ -19,10 +29,10 @@ public class EDD_Proyecto2 {
         de alli ya buscar el get que queras 
         */
       //dfdfdf
-        MenuV nuevo= new MenuV();
+      /*  MenuV nuevo= new MenuV();
         nuevo.setVisible(true);
        /* MenuC nuevo=new MenuC();
         nuevo.setVisible(true);*/
-    }
-    
+  /*  }*/
 }
+
