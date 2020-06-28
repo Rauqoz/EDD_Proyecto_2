@@ -18,17 +18,20 @@ public class ArbolB {
 
     NodoB raiz;
     int gradoM;
+    int tam;
 
     public ArbolB(int gradoM_) {
         this.raiz = null;
         gradoM = gradoM_;
+        tam=0;
     }
 
     public void Ge() {
         ListaN nu = new ListaN();
 
         if (raiz != null) {
-            try {
+            if (tam>5) {
+                 try {
                 System.out.println(raiz.Gcodigo(0));
                 raiz.Vector(0, nu);
                 nu.getTama();
@@ -71,6 +74,9 @@ public class ArbolB {
             } catch (IOException e) {
                 System.out.println(e);
             }
+            }else{
+            raiz.Ggraphyz();
+            }
 
         }
     }
@@ -107,6 +113,7 @@ public class ArbolB {
             raiz = new NodoB(gradoM, true);
             raiz.LLave[0] = n;
             raiz.nA = 1;
+            tam++;
         } else {
             if (raiz.nA == (2 * gradoM - 1)) {
                 NodoB s = new NodoB(gradoM, false);
@@ -118,8 +125,10 @@ public class ArbolB {
                 }
                 s.segun[i].InsertarNll(n);
                 raiz = s;
+                tam++;
             } else {
                 raiz.InsertarNll(n);
+                tam++;
             }
         }
     }
