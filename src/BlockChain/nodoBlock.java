@@ -3,6 +3,7 @@ package BlockChain;
 import Clientes.NodoH;
 import Conductores.NodoC;
 import Rutas.nodoParaRuta;
+import Veiculo.Carro;
 
 public class nodoBlock {
 
@@ -14,6 +15,15 @@ public class nodoBlock {
     nodoParaRuta ruta;
     NodoH cliente;
     NodoC conductor;
+    Carro vechiculo;
+
+    public Carro getVechiculo() {
+        return vechiculo;
+    }
+
+    public void setVechiculo(Carro vechiculo) {
+        this.vechiculo = vechiculo;
+    }
 
     public nodoBlock(String lugarOrigen, String lugarDestino) {
         this.lugarOrigen = lugarOrigen;

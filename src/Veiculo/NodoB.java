@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -89,30 +90,46 @@ public class NodoB {
         }
         if (hoja == false) {
             segun[i].Imprimir();
-            System.out.println("yo salgo de aqui " + segun[i].LLave[0]);
-            System.out.println("yo y depues yo: " + imp);
         }
         System.out.println(imp);
     }
-     public String Texto() {
+
+    public void cargaVehiculos2(JComboBox combo) {
         String imp = "";
         int aux = 0;
         int i;
         for (i = 0; i < nA; i++) {
             if (hoja == false) {
-                imp = imp +segun[i].Texto();
+                segun[i].cargaVehiculos2(combo);
             }
-            imp = imp +"Placa: "+ LLave[i].getPlasca() + "; Marca: "+LLave[i].getMarca()+"; Modelo: "+LLave[i].getModelo()+"; Año: "+LLave[i].getAno()+"; Color: "+LLave[i].getColor()+"; precio: "+LLave[i].getPrecio()+"; transmision: "+LLave[i].getTransmision()+"\n";
+//            imp = imp + LLave[i].getPlasca() + ",";
+            combo.addItem(LLave[i].getPlasca());
             //System.out.print(aux+" ");
         }
         if (hoja == false) {
-            imp = imp +segun[i].Texto();
+            segun[i].cargaVehiculos2(combo);
+        }
+    }
+
+    public String Texto() {
+        String imp = "";
+        int aux = 0;
+        int i;
+        for (i = 0; i < nA; i++) {
+            if (hoja == false) {
+                imp = imp + segun[i].Texto();
+            }
+            imp = imp + "Placa: " + LLave[i].getPlasca() + "; Marca: " + LLave[i].getMarca() + "; Modelo: " + LLave[i].getModelo() + "; Año: " + LLave[i].getAno() + "; Color: " + LLave[i].getColor() + "; precio: " + LLave[i].getPrecio() + "; transmision: " + LLave[i].getTransmision() + "\n";
+            //System.out.print(aux+" ");
+        }
+        if (hoja == false) {
+            imp = imp + segun[i].Texto();
         }
         return imp;
     }
 
     public Carro Buscar(String s) {
-        int n=ValuString(s);
+        int n = ValuString(s);
         int i = 0;
         while (i < nA && n > ValuString(LLave[i].getPlasca())) {
             i++;
@@ -127,7 +144,7 @@ public class NodoB {
     }
 
     public int BuscarIn(String s) {
-        int n=ValuString(s);
+        int n = ValuString(s);
         int i = 0;
         while (i < nA && n > ValuString(LLave[i].getPlasca())) {
             i++;
@@ -197,7 +214,7 @@ public class NodoB {
     }
 
     public boolean Eliminar(String s) {
-        int n=ValuString(s);
+        int n = ValuString(s);
         int auxn = EnContrarLLave(n);
         if (auxn < nA && ValuString(LLave[auxn].plasca) == n) {
             if (hoja) {
@@ -447,12 +464,13 @@ public class NodoB {
             }
         }
     }
+
     public int ValuString(String n) {
         String entrada = n;
         int valor = 0;
         if (!n.equals("")) {
             char[] convercion = entrada.toCharArray();
-            
+
             for (int i = 0; i < convercion.length; i++) {
                 valor = valor + (int) convercion[i];
             }

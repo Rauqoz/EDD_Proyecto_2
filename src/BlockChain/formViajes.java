@@ -39,10 +39,12 @@ public class formViajes extends javax.swing.JFrame {
         cConductores.removeAllItems();
         cOrigenes.removeAllItems();
         cDestinos.removeAllItems();
+        cVehiculos.removeAllItems();
         tablita.cargarCombobox(cClientes);
         lista.cargaCombobox(cConductores);
         ListaRutas.cargarOrigenesCombobox(ListaRutas.inicio, cOrigenes);
         ListaRutas.cargarOrigenesCombobox(ListaRutas.inicio, cDestinos);
+        t.cargaVehiculos1(cVehiculos);
     }
 
     @SuppressWarnings("unchecked")
@@ -208,10 +210,10 @@ public class formViajes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if (cClientes.getItemCount() == 0 || cConductores.getItemCount() == 0 || cOrigenes.getItemCount() == 0 || cDestinos.getItemCount() == 0) {
+        if (cClientes.getItemCount() == 0 || cConductores.getItemCount() == 0 || cOrigenes.getItemCount() == 0 || cDestinos.getItemCount() == 0 || cVehiculos.getItemCount() == 0) {
             JOptionPane.showMessageDialog(null, "Campos Vacios");
         } else {
-            ListaViajes.insertarViaje(cOrigenes.getSelectedItem().toString(), cDestinos.getSelectedItem().toString(), cClientes.getSelectedItem().toString(), cConductores.getSelectedItem().toString());
+            ListaViajes.insertarViaje(cOrigenes.getSelectedItem().toString(), cDestinos.getSelectedItem().toString(), cClientes.getSelectedItem().toString(), cConductores.getSelectedItem().toString(), cVehiculos.getSelectedItem().toString());
             File imagen = new File("rutaActual.png");
             if (imagen.exists()) {
                 Desktop abrir = Desktop.getDesktop();

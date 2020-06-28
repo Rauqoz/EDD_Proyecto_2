@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -23,59 +24,59 @@ public class ArbolB {
     public ArbolB(int gradoM_) {
         this.raiz = null;
         gradoM = gradoM_;
-        tam=0;
+        tam = 0;
     }
 
     public void Ge() {
         ListaN nu = new ListaN();
 
         if (raiz != null) {
-            if (tam>5) {
-                 try {
-                System.out.println(raiz.Gcodigo(0));
-                raiz.Vector(0, nu);
-                nu.getTama();
-                nu.Imprimir();
-                ListaN craiz = new ListaN();
-                int cont = 0;
-                while (cont < nu.getTama()) {
-                    craiz.Add(nu.Recorriodo(cont).getDato());
-                    cont++;
-                }
-                String n = "";
-                String ya = raiz.Gcodigo(0) + nu.CodigoC(0, n);
-                while (nu.getRoot() != null) {
-                    ya = ya + nu.CodigoC(0, n);
-                }
-                ya = ya + craiz.CodigoC2(0, n);
-                System.out.println(ya);
+            if (tam > 5) {
+                try {
+                    System.out.println(raiz.Gcodigo(0));
+                    raiz.Vector(0, nu);
+                    nu.getTama();
+                    nu.Imprimir();
+                    ListaN craiz = new ListaN();
+                    int cont = 0;
+                    while (cont < nu.getTama()) {
+                        craiz.Add(nu.Recorriodo(cont).getDato());
+                        cont++;
+                    }
+                    String n = "";
+                    String ya = raiz.Gcodigo(0) + nu.CodigoC(0, n);
+                    while (nu.getRoot() != null) {
+                        ya = ya + nu.CodigoC(0, n);
+                    }
+                    ya = ya + craiz.CodigoC2(0, n);
+                    System.out.println(ya);
 
-                //escribir dot
-                FileWriter codigo = new FileWriter("ArbolB" + ".dot");
-                PrintWriter documento = new PrintWriter(codigo);
-                documento.println("digraph G {\n  ");
-                documento.println("node[shape=record,color=\"red\"]; \n");
-                documento.println("\t\t//Arbol B \n");
-                documento.println(ya);
-                documento.println("\n");
-                documento.println("}");
-                codigo.close();
+                    //escribir dot
+                    FileWriter codigo = new FileWriter("ArbolB" + ".dot");
+                    PrintWriter documento = new PrintWriter(codigo);
+                    documento.println("digraph G {\n  ");
+                    documento.println("node[shape=record,color=\"red\"]; \n");
+                    documento.println("\t\t//Arbol B \n");
+                    documento.println(ya);
+                    documento.println("\n");
+                    documento.println("}");
+                    codigo.close();
 
-                //compilar dot y generar imagen
-                File miDir = new File(".");
-                String ruta = miDir.getCanonicalPath() + "\\";//ruta actual
-                String salida = "dot -Tpng " + ruta + "ArbolB" + ".dot -o " + ruta + "ArbolB" + ".png";
-                Runtime rt = Runtime.getRuntime();
-                rt.exec(salida);
-                //abrir imagen
-                /* miDir = new File(ruta +"conductores" + ".png");
+                    //compilar dot y generar imagen
+                    File miDir = new File(".");
+                    String ruta = miDir.getCanonicalPath() + "\\";//ruta actual
+                    String salida = "dot -Tpng " + ruta + "ArbolB" + ".dot -o " + ruta + "ArbolB" + ".png";
+                    Runtime rt = Runtime.getRuntime();
+                    rt.exec(salida);
+                    //abrir imagen
+                    /* miDir = new File(ruta +"conductores" + ".png");
             Desktop.getDesktop().open(miDir);*/
 
-            } catch (IOException e) {
-                System.out.println(e);
-            }
-            }else{
-            raiz.Ggraphyz();
+                } catch (IOException e) {
+                    System.out.println(e);
+                }
+            } else {
+                raiz.Ggraphyz();
             }
 
         }
@@ -84,6 +85,12 @@ public class ArbolB {
     public void ImprimirB() {
         if (raiz != null) {
             raiz.Imprimir();
+        }
+    }
+
+    public void cargaVehiculos1(JComboBox combo) {
+        if (raiz != null) {
+            raiz.cargaVehiculos2(combo);
         }
     }
 

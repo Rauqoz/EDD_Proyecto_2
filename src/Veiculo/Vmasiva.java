@@ -57,7 +57,7 @@ public class Vmasiva extends javax.swing.JPanel {
         jScrollPane1.setViewportView(cargados);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("Carga Masiva de Conductor");
+        jLabel1.setText("Carga Masiva de Vehiculos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

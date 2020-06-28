@@ -25,14 +25,15 @@ public class listaBlock {
         this.inicio = null;
     }
 
-    public void insertarViaje(String origen_, String destino_, String cliente, String conductor) {
+    public void insertarViaje(String origen_, String destino_, String cliente, String conductor, String placa) {
         nodoBlock nuevo = new nodoBlock(origen_, destino_);
         nuevo.cliente = tablita.Busqueda(cliente);
         nuevo.conductor = lista.Buscar(conductor);
         String fechaHoraNodo = generarFechaHoraNodo();
         String fechaHoraLlave = generarFechaHoraLlave();
         nuevo.fechaHora = fechaHoraNodo;
-        nuevo.llave = encriptarMD5(fechaHoraLlave);
+        nuevo.vechiculo = t.BusquedaB(placa);
+        nuevo.llave = encriptarMD5(placa + fechaHoraLlave);
         nuevo.ruta = ListaRutas.buscarRuta(origen_, destino_);
         if (inicio == null) {
             inicio = nuevo;
@@ -103,7 +104,7 @@ public class listaBlock {
         if (tempo_ != null) {
 
             try {
-                archivo.write("\"" + tempo_.llave + " " + tempo_.lugarOrigen + " " + tempo_.lugarDestino + " " + tempo_.fechaHora + " Cliente: " + tempo_.cliente.getDato().getNombre() + " Conductor: " + tempo_.conductor.getDato().getNombre() + "\"");
+                archivo.write("\"" + tempo_.llave + " " + tempo_.lugarOrigen + " " + tempo_.lugarDestino + " " + tempo_.fechaHora + " Cliente: " + tempo_.cliente.getDato().getNombre() + " Conductor: " + tempo_.conductor.getDato().getNombre() + " Vehiculo: " + tempo_.vechiculo.getPlasca() + " " + tempo_.vechiculo.getModelo() + "\"");
             } catch (IOException ex) {
                 Logger.getLogger(listaRutas.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -155,6 +156,24 @@ public class listaBlock {
             if (topActual[i] != null) {
 //                System.out.println("Conductor: " + topActual[i].nombre + " Numero Viajes: " + topActual[i].top);
                 area.append("Conductor: " + topActual[i].nombre + " Numero Viajes: " + topActual[i].top + "\n");
+            }
+        }
+
+    }
+
+    public void topVehiculos(JTextArea area) {
+        topActual = new nodoTopBC[10];
+        nodoBlock tempo = inicio;
+        while (tempo != null) {
+//            System.out.println(tempo.getCliente().getDato().getNombre() + " ---- ");
+            buscarEnTop(tempo.vechiculo.getPlasca());
+            tempo = tempo.derecha;
+
+        }
+        for (int i = 0; i < topActual.length; i++) {
+            if (topActual[i] != null) {
+//                System.out.println("Conductor: " + topActual[i].nombre + " Numero Viajes: " + topActual[i].top);
+                area.append("Vehiculo Placa: " + topActual[i].nombre + " Numero Viajes: " + topActual[i].top + "\n");
             }
         }
 

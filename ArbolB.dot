@@ -4,11 +4,41 @@ node[shape=record,color="red"];
 
 		//Arbol B 
 
-R82217dvk[label="|218ddd||217dvk|"];
-R82hjhjhhjhj[label="|154jhjh||hjhjhj||hjhjhhjhj|"];
-R81888sss[label="|888sss|"];
-R81888sss->R82217dvk;
-R81888sss->R82hjhjhhjhj;
+R83p1lAf1[label="|p0lAf0||p1lAf1|"];
+R83p4lAf4[label="|p3lAf3||p4lAf4|"];
+R83p7lAf7[label="|p6lAf6||p7lAf7|"];
+R82p5lAf5[label="|p2lAf2||p5lAf5|"];
+R83p10lAf10[label="|p9lAf9||p10lAf10|"];
+R83p12lAf12[label="|p20lAf20||p12lAf12|"];
+R83p40lAf40[label="|p30lAf30||p13lAf13||p22lAf22||p40lAf40|"];
+R82p21lAf21[label="|p11lAf11||p21lAf21|"];
+R83p15lAf15[label="|p31lAf31||p23lAf23||p32lAf32||p41lAf41||p15lAf15|"];
+R83p42lAf42[label="|p33lAf33||p42lAf42|"];
+R83p43lAf43[label="|p25lAf25||p34lAf34||p43lAf43|"];
+R82p16lAf16[label="|p24lAf24||p16lAf16|"];
+R83p18lAf18[label="|p26lAf26||p35lAf35||p44lAf44||p18lAf18|"];
+R83p19lAf19[label="|p36lAf36||p45lAf45||p19lAf19|"];
+R83p46lAf46[label="|p37lAf37||p46lAf46|"];
+R83p49lAf49[label="|p38lAf38||p47lAf47||p39lAf39||p48lAf48||p49lAf49|"];
+R82p29lAf29[label="|p27lAf27||p28lAf28||p29lAf29|"];
+R81p17lAf17[label="|p8lAf8||p14lAf14||p17lAf17|"];
+R82p5lAf5->R83p1lAf1;
+R82p5lAf5->R83p4lAf4;
+R82p5lAf5->R83p7lAf7;
+R82p21lAf21->R83p10lAf10;
+R82p21lAf21->R83p12lAf12;
+R82p21lAf21->R83p40lAf40;
+R82p16lAf16->R83p15lAf15;
+R82p16lAf16->R83p42lAf42;
+R82p16lAf16->R83p43lAf43;
+R82p29lAf29->R83p18lAf18;
+R82p29lAf29->R83p19lAf19;
+R82p29lAf29->R83p46lAf46;
+R82p29lAf29->R83p49lAf49;
+R81p17lAf17->R82p5lAf5;
+R81p17lAf17->R82p21lAf21;
+R81p17lAf17->R82p16lAf16;
+R81p17lAf17->R82p29lAf29;
 
 
 

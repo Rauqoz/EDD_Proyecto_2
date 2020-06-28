@@ -1,2 +1,2 @@
 digraph G { 
-node [style=circle, color = blue];"Bilbao 837.0" ->"Albacete 191" ->"Valencia 0"; label = "Ruta Actual";} 
+node [style=circle, color = blue];"Murcia 1049.0" ->"Valladolid 455" ->"Coruna 0"; label = "Ruta Actual";} 
