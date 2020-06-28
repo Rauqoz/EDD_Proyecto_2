@@ -1,2 +1,0 @@
-digraph G { 
-node [style=circle, color = blue];"Oviedo 1401.0" ->"Bilbao 1097.0" ->"Madrid 702.0" ->"Jaen 367.0" ->"Sevilla 125" ->"Cadiz 0"; label = "Ruta Actual";} 
