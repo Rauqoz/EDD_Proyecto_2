@@ -64,11 +64,13 @@ public class InterfazG extends javax.swing.JFrame {
 
         CConte.setBackground(new java.awt.Color(102, 102, 102));
 
+        carga.setEditable(false);
         carga.setBackground(new java.awt.Color(153, 153, 153));
         carga.setColumns(20);
         carga.setRows(5);
         jScrollPane1.setViewportView(carga);
 
+        reletras.setEditable(false);
         reletras.setBackground(new java.awt.Color(153, 153, 153));
         reletras.setColumns(20);
         reletras.setRows(5);
@@ -82,11 +84,13 @@ public class InterfazG extends javax.swing.JFrame {
             }
         });
 
+        texdescom.setEditable(false);
         texdescom.setBackground(new java.awt.Color(153, 153, 153));
         texdescom.setColumns(20);
         texdescom.setRows(5);
         jScrollPane3.setViewportView(texdescom);
 
+        diccionariotex.setEditable(false);
         diccionariotex.setBackground(new java.awt.Color(153, 153, 153));
         diccionariotex.setColumns(20);
         diccionariotex.setRows(5);
@@ -367,7 +371,7 @@ public Repitencia[] Letras(String n) {
         FileWriter guardar;
         try {
 
-            guardar = new FileWriter(donden, true);
+            guardar = new FileWriter(donden + ".edd");
             guardar.write(comprimido);
             guardar.close();
 
