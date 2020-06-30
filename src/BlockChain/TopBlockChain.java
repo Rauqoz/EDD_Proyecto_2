@@ -238,6 +238,10 @@ public class TopBlockChain extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        tArea.setText("");
+        ListaViajes.topViajes(tArea);
+        InterfazG menuH = new InterfazG(tArea.getText());
+        menuH.setVisible(true);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

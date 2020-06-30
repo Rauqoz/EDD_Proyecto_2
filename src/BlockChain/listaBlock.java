@@ -178,6 +178,44 @@ public class listaBlock {
 
     }
 
+    public void topViajes(JTextArea area) {
+        topActual = new nodoTopBC[10];
+        nodoBlock tempo = inicio;
+        while (tempo != null) {
+//            System.out.println(tempo.getCliente().getDato().getNombre() + " ---- ");
+            buscarEnTopViajes(tempo.llave, tempo.ruta);
+            tempo = tempo.derecha;
+
+        }
+        for (int i = 0; i < topActual.length; i++) {
+            if (topActual[i] != null) {
+//                System.out.println("Conductor: " + topActual[i].nombre + " Numero Viajes: " + topActual[i].top);
+                area.append("Viaje: " + topActual[i].nombre + " Numero Destinos: " + topActual[i].top + "\n");
+            }
+        }
+
+    }
+
+    void buscarEnTopViajes(String contenido, nodoParaRuta tempo) {
+
+        for (int i = 0; i < topActual.length; i++) {
+            if (topActual[i] != null) {
+
+            } else {
+                topActual[i] = new nodoTopBC();
+                topActual[i].nombre = contenido;
+                while (tempo != null) {
+                    topActual[i].top += 1;
+                    tempo = tempo.getDerecha();
+                }
+                break;
+            }
+
+        }
+        ordenarTop();
+
+    }
+
     void buscarEnTop(String contenido) {
 
         for (int i = 0; i < topActual.length; i++) {
