@@ -1,0 +1,2 @@
+digraph G { 
+node [style=circle, color = blue];"51e429287cbe15185963f78293ceabae Cadiz Albacete 29:06:2020 19:39 Cliente: AAA10 Conductor: Rolando Vehiculo: p0lAf0 cc" ->"51e429287cbe15185963f78293ceabae Cadiz Valencia 29:06:2020 19:39 Cliente: AAA10 Conductor: Rolando Vehiculo: p0lAf0 cc" ->"51e429287cbe15185963f78293ceabae Granada Badajoz 29:06:2020 19:39 Cliente: AAA10 Conductor: Rolando Vehiculo: p0lAf0 cc"; label = "BlockChain";} 

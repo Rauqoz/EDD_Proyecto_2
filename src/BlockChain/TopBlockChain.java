@@ -6,7 +6,16 @@
 package BlockChain;
 
 import HuffmaLib.InterfazG;
+import Rutas.listaParaLaRuta;
 import static edd_proyecto2.EDD_Proyecto2.*;
+import java.awt.Desktop;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 /**
@@ -43,6 +52,7 @@ public class TopBlockChain extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tArea = new javax.swing.JTextArea();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +60,11 @@ public class TopBlockChain extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("Top Viajes");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Top Clientes");
@@ -98,39 +113,50 @@ public class TopBlockChain extends javax.swing.JFrame {
         tArea.setRows(5);
         jScrollPane1.setViewportView(tArea);
 
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton7.setText("Mostrar Estructuras");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addComponent(jButton2))
-                        .addGap(28, 28, 28))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(239, 239, 239)
+                                .addComponent(jButton4)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(187, 187, 187))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
+                        .addGap(187, 187, 187))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton5)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(56, 56, 56)
+                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(20, 20, 20))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,15 +169,17 @@ public class TopBlockChain extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(43, 43, 43)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton3))
-                .addGap(36, 36, 36)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -173,6 +201,7 @@ public class TopBlockChain extends javax.swing.JFrame {
         tArea.setText("");
         ListaViajes.topClientes(tArea);
         InterfazG menuH = new InterfazG(tArea.getText());
+        menuH.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -186,6 +215,8 @@ public class TopBlockChain extends javax.swing.JFrame {
         // TODO add your handling code here:
         tArea.setText("");
         ListaViajes.topConductores(tArea);
+        InterfazG menuH = new InterfazG(tArea.getText());
+        menuH.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -201,7 +232,70 @@ public class TopBlockChain extends javax.swing.JFrame {
         // TODO add your handling code here:
         tArea.setText("");
         ListaViajes.topVehiculos(tArea);
+        InterfazG menuH = new InterfazG(tArea.getText());
+        menuH.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+        try {
+            int w, h;
+            BufferedImage tablaHash = ImageIO.read(new File("Tablahash.png"));
+            BufferedImage arbolB = ImageIO.read(new File("ArbolB.png"));
+            BufferedImage blockChain = ImageIO.read(new File("blockChain.png"));
+            BufferedImage rutaActual = ImageIO.read(new File("rutaActual.png"));
+            BufferedImage rutas = ImageIO.read(new File("rutas.png"));
+
+            w = Math.max(tablaHash.getWidth(), arbolB.getWidth());
+            h = Math.max(tablaHash.getHeight(), arbolB.getHeight());
+            BufferedImage combined = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+
+            w = Math.max(combined.getWidth(), blockChain.getWidth());
+            h = Math.max(combined.getHeight(), blockChain.getHeight());
+
+            BufferedImage combined2 = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+
+            w = Math.max(combined2.getWidth(), rutaActual.getWidth());
+
+            BufferedImage combined3 = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+
+            w = Math.max(combined3.getWidth(), rutas.getWidth());
+            h = Math.max(combined3.getHeight(), rutas.getHeight());
+
+            BufferedImage combinedF = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+
+            Graphics g = combinedF.getGraphics();
+            //ancho, alto
+            g.drawImage(arbolB, 0, 0, null);
+            g.drawImage(tablaHash, 0, arbolB.getHeight(), null);
+            g.drawImage(blockChain, tablaHash.getWidth(), arbolB.getHeight(), null);
+            nodoBlock tempo = ListaViajes.inicio;
+            while (tempo != null) {
+                listaParaLaRuta tempo2 = new listaParaLaRuta();
+                tempo2.graficarDesdeRuta(tempo.ruta);
+                g.drawImage(rutaActual, tablaHash.getWidth() + blockChain.getWidth(), arbolB.getHeight(), null);
+                tempo = tempo.derecha;
+            }
+            g.drawImage(rutas, tablaHash.getWidth() + blockChain.getWidth() + rutaActual.getWidth(), arbolB.getHeight(), null);
+
+            ImageIO.write(combinedF, "PNG", new File("EstructurasJuntas.png"));
+
+            File imagen = new File("EstructurasJuntas.png");
+            if (imagen.exists()) {
+                Desktop abrir = Desktop.getDesktop();
+                abrir.open(imagen);
+
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(TopBlockChain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -211,6 +305,7 @@ public class TopBlockChain extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

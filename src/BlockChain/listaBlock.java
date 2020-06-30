@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static edd_proyecto2.EDD_Proyecto2.*;
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class listaBlock {
