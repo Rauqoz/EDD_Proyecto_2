@@ -73,7 +73,7 @@ public class formViajes extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -91,6 +91,7 @@ public class formViajes extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(40, 270, 70, 22);
 
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Crear Viaje");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -116,18 +117,22 @@ public class formViajes extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(40, 220, 90, 22);
 
+        cVehiculos.setBackground(new java.awt.Color(153, 153, 153));
         cVehiculos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(cVehiculos);
-        cVehiculos.setBounds(170, 270, 110, 28);
+        cVehiculos.setBounds(170, 270, 110, 32);
 
+        cClientes.setBackground(new java.awt.Color(153, 153, 153));
         cClientes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(cClientes);
-        cClientes.setBounds(170, 170, 110, 28);
+        cClientes.setBounds(170, 170, 110, 32);
 
+        cConductores.setBackground(new java.awt.Color(153, 153, 153));
         cConductores.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(cConductores);
-        cConductores.setBounds(170, 220, 110, 28);
+        cConductores.setBounds(170, 220, 110, 32);
 
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("Ver Rutas");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +143,7 @@ public class formViajes extends javax.swing.JFrame {
         jPanel1.add(jButton2);
         jButton2.setBounds(380, 70, 110, 40);
 
+        jButton3.setBackground(new java.awt.Color(153, 153, 153));
         jButton3.setText("Atras");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,8 +151,9 @@ public class formViajes extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(30, 10, 90, 23);
+        jButton3.setBounds(30, 10, 90, 32);
 
+        jButton4.setBackground(new java.awt.Color(153, 153, 153));
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton4.setText("Ver Viajes");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -157,12 +164,15 @@ public class formViajes extends javax.swing.JFrame {
         jPanel1.add(jButton4);
         jButton4.setBounds(380, 190, 110, 40);
 
+        cDestinos.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.add(cDestinos);
         cDestinos.setBounds(170, 120, 110, 30);
 
+        cOrigenes.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.add(cOrigenes);
         cOrigenes.setBounds(170, 70, 110, 30);
 
+        jButton5.setBackground(new java.awt.Color(153, 153, 153));
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton5.setText("Top's");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
