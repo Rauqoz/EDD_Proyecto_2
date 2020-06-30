@@ -1,2 +1,0 @@
-digraph G { 
-node [style=circle, color = blue];rankdir=LR;"Cadiz 0";"Sevilla 125" ->"Cadiz 0""Granada 381.0" ->"Sevilla 125""Murcia 659.0" ->"Granada 381.0""Albacete 809.0" ->"Murcia 659.0" label = "Ruta Actual";} 
