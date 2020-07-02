@@ -122,6 +122,7 @@ public class InterfazG extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel5.setText("Descompresion");
 
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setText("Cerrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

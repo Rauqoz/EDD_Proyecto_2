@@ -97,6 +97,7 @@ public class TopBlockChain extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Top's");
 
+        jButton5.setBackground(new java.awt.Color(153, 153, 153));
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton5.setText("Ruta con Llave");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +120,7 @@ public class TopBlockChain extends javax.swing.JFrame {
         tArea.setRows(5);
         jScrollPane1.setViewportView(tArea);
 
+        jButton7.setBackground(new java.awt.Color(153, 153, 153));
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton7.setText("Mostrar Estructuras");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
