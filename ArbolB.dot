@@ -1,0 +1,15 @@
+digraph G {
+  
+node[shape=record,color="red"]; 
+
+		//Arbol B 
+
+R82217dvk[label="|218ddd||217dvk|"];
+R82hjhjhhjhj[label="|154jhjh||hjhjhj||hjhjhhjhj|"];
+R81888sss[label="|888sss|"];
+R81888sss->R82217dvk;
+R81888sss->R82hjhjhhjhj;
+
+
+
+}
